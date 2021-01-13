@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Josefin+Slab&display=swap');
+
+body {
+  font-family: "Josefin Slab", sans-serif;
+  padding: 0;
+  margin: 0;
+  background-color: rgb(255, 255, 255) !important;
+  color: #202020;
+  z-index: 0;
+}
+
+
+h1{
+    font-family: 'Amatic SC', sans-serif !important;
+     
+}
+
+h2 {
+  font-family: "Joesfin Slab", sans-serif;
+}
+
+.navbar-brand{
+    font-family: 'Amatic SC', sans-serif !important;
+    font-size: 3vmax;
+}
+
+.no-gutters{
+    margin: 0 !important;
+}
+
+/*-------------- Nav Bar ------------------- */
+
+.masthead-content{
+    background: url("../img/walkies-hero.jpg") no-repeat center center;
+    height: 35vmax;
+    width: 100%;
+    align-items: center;
+    padding-top: 6rem;
+}
+
+.navbar-brand{
+    font-size: 3.5vmax;
+}
+
+
+/* ----------------- hide nav bar ---------------*/
+
+.nav-item-white {
+  color: #fafafa !important;
+}
+
+.nav-item-white:hover {
+  color: #c9c9c9 !important;
+  margin-bottom: 0;
+}
+
+.nav-item-black {
+  color: black !important;
+}
+
+.nav-item-black:hover {
+  color: rgb(63, 63, 63) !important;
+  border-bottom: none !important;
+  margin-bottom: 0;
+}
+
+.white-background {
+  background-color: white;
+}
+
+.dark-background {
+  background-color: black;
+  padding: 0;
+}
+
+/*-------------- Back to top buttons (courtesy of https://heathertovey.com/blog/floating-back-to-top-button/) ------ */
+
+.back-to-top {
+    background-color: #43b3ad;
+    color: #FFFFFF;
+    opacity: 0;
+    transition: opacity .6s ease-in-out;
+    z-index: 999;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 50px;
+    height: 50px;
+    box-sizing: border-box;
+    border-radius: 0%;
+  }
+
+  a.back-to-top {
+    font-weight: 1000;
+    letter-spacing: 2px;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.6;
+    padding-left: 2px;
+    padding-top: 14px;
+    border-radius: 50%;
+  }
+
+  .back-to-top:hover, .back-to-top:focus, .back-to-top:visited {
+    color: #FFFFFF;
+  }
+
+  .back-to-top.show {
+    opacity: 1;
+  }
+
+/*----------------- Buttons ------------- */
+
+.nav-button-green{
+    background-color: #69EA5E;
+    margin-left: 10px;
+    border-radius: 15px;
+}
+
+.nav-button-blue{
+background-color: #5BC8C1;
+margin-right: 10px;
+border-radius: 15px;
+}
+
+.nav-button-green:hover {
+  background-color: #105725 !important;
+  border: none !important;
+  color: #fafafa !important;
+}
+
+.nav-button-blue:hover {
+  background-color: #24316b !important;
+  border: none !important;
+  color: #fafafa !important;
+}
+
+/*------------------ Footer----------------- */
+
+footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  padding-bottom: 10px;
+  margin: 0;
+}
+
+footer ul {
+  margin: 0;
+}
+
+.footer-flex {
+  display: flex;
+  min-height: 45vh;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+footer ul {
+  margin: 0;
+}
+
+.social-media {
+  text-align: center;
+  bottom: 5px;
+  padding: 0;
+}
+
+.social-media li {
+  display: inline;
+  text-decoration: none;
+}
+
+.social-media i {
+  font-size: 2vmax !important;
+  letter-spacing: 0px;
+  padding-left: 45px;
+  padding-right: 45px;
+  margin: 1%;
+  text-decoration: none;
+  color: #000000 !important;
+  bottom: 10px;
+}
+
+@media screen and (min-width: 800px) {
+  .social-media i {
+    font-size: 2vmax ;
+    letter-spacing: 0px;
+    padding: 0 45px 0 45px;
+    margin: 1%;
+    text-decoration: none;
+    color: #000000;
+    bottom: 0px;
+  }
+}
+
+.copyright {
+  text-align: center;
+  color: #000000;
+  font-size: 2vmax;
+}
