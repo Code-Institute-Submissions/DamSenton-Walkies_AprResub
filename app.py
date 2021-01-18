@@ -11,8 +11,15 @@ if os.path.exists("env.py"):
 
 app = Flask(__name__)
 
+app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
+app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
+app.secret_key = os.environ.get("SECRET_KEY")
+
+mongo = PyMongo(app)
+
 
 @app.route("/")
+@app.route("/index")
 def index():
     return render_template("index.html")
 
@@ -29,17 +36,17 @@ def contact():
 
 @app.route("/sign_in")
 def sign_in_user():
-    return render_template("sign_in.html")
+    return render_template("sign-in.html")
 
 
 @app.route("/register_owner")
 def register_owner():
-    return render_template("register_owner.html")
+    return render_template("register-owner.html")
 
 
 @app.route("/register_walker")
 def register_walker():
-    return render_template("register_walker.html")
+    return render_template("register-walker.html")
 
 
 if __name__ == "__main__":

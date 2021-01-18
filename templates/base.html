@@ -13,6 +13,7 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
         integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename= 'vendor/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/clean-blog.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
@@ -25,7 +26,7 @@
 <body>
     <a href="#" id="back-to-top" class="back-to-top" style="display: inline;"><i class="fas fa-angle-up"></i></a>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top" id="navbar">
+    <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
         <div class="container">
             <a class="navbar-brand nav-link" href="{{ url_for('index') }}">Walkies!</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
@@ -34,8 +35,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto ">
-                    <li><a href="#" class="waves-effect waves-light btn nav-button-blue">Sign Up</a></li>
-                    <li><a href="{{ url_for('sign_in_user') }}" class="waves-effect waves-light btn nav-button-green">Sign In</a></li>
+                    <li><a href="{{ url_for('sign_in_user')}}"
+                            class="waves-effect waves-light btn nav-button-green">Sign In</a></li>
 
                 </ul>
             </div>
@@ -44,23 +45,11 @@
 
     <!----- Header Element ----->
 
-    <header class="masthead text-center text-white">
-        <div class="masthead-content no-gutters">
-            <div class="container">
-                <h2 class="masthead-subheading mb-0">Want to get out more and help in your community?</h2>
-                <p><strong>Register to help today!</strong></p>
-                <a href="#" class="waves-effect waves-light btn nav-button-green">Register a Dog</a>
-                <a href="#" class="waves-effect waves-light btn nav-button-blue">Register to Walk a Dog</a>
-            </div>
-        </div>
-        <div class="bg-circle-1 bg-circle"></div>
-        <div class="bg-circle-2 bg-circle"></div>
-        <div class="bg-circle-3 bg-circle"></div>
-        <div class="bg-circle-4 bg-circle"></div>
-    </header>
 
-   
 
+
+    {% block content %}
+    {% endblock content %}
     <!-- Footer -->
 
 
@@ -108,25 +97,26 @@
             }
         });
 
-"<!-------------Scrolls to top -------------->"
+        "<!-------------Scrolls to top -------------->"
 
-            link.addEventListener('click', function (e) {
-                e.preventDefault();
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
 
-                var distance = 0 - window.pageYOffset;
-                var increments = distance / (500 / 16);
-                function animateScroll() {
-                    window.scrollBy(0, increments);
-                    if (window.pageYOffset <= document.body.offsetTop) {
-                        clearInterval(runAnimation);
-                    }
-                };
-                // Loop the animation function
-                var runAnimation = setInterval(animateScroll, 16);
-            });
+            var distance = 0 - window.pageYOffset;
+            var increments = distance / (500 / 16);
+            function animateScroll() {
+                window.scrollBy(0, increments);
+                if (window.pageYOffset <= document.body.offsetTop) {
+                    clearInterval(runAnimation);
+                }
+            };
+            // Loop the animation function
+            var runAnimation = setInterval(animateScroll, 16);
+        });
     </script>
 
     <!-------------Load in core bootstrap and JQuery --------------->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>

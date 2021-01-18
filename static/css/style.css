@@ -36,17 +36,23 @@ h2 {
     width: 100%;
     align-items: center;
     padding-top: 6rem;
+    margin-top: 65px !important;
 }
+
+.navbar{
+    background-color: #fafafa;
+    }
 
 .navbar-brand{
     font-size: 3.5vmax;
+    color: black;
 }
 
 
 /* ----------------- hide nav bar ---------------*/
 
 .nav-item-white {
-  color: #fafafa !important;
+  color: black;
 }
 
 .nav-item-white:hover {
@@ -135,6 +141,50 @@ border-radius: 15px;
   border: none !important;
   color: #fafafa !important;
 }
+
+/*---------------- register forms ------------------------ */
+
+.owner-form{
+    margin-top: 65px;
+    padding: 20px;
+    background-color: rgb(125, 236, 229);
+}
+
+.walker-form{
+    margin-top: 65px;
+    padding: 20px;
+    background-color: rgb(125, 236, 229);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*------------------ Footer----------------- */
 
