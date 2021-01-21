@@ -19,11 +19,6 @@ h2 {
   font-family: "Joesfin Slab", sans-serif;
 }
 
-.navbar-brand{
-    font-family: 'Amatic SC', sans-serif !important;
-    font-size: 3vmax;
-}
-
 .no-gutters{
     margin: 0 !important;
 }
@@ -40,13 +35,59 @@ h2 {
     position: relative;
 }
 
+nav a{
+    line-height: 50px;
+}
+
 .navbar{
     background-color: #fafafa;
-    }
+    height: 80px;
+    color: black;
+}
 
 .navbar-brand{
-    font-size: 3.5vmax;
+    font-family: 'Amatic SC', sans-serif !important;
+    font-size: 3vmax !important;
     color: black;
+}
+
+.navbar-brand:hover{
+    color: rgb(68, 211, 144);
+}
+
+.nav-link{
+    font-family: 'Amatic SC', sans-serif;
+    font-size: 2vmax;
+    color: black;
+    text-decoration: none;
+    margin: 0 auto;
+}
+
+#nav-toggler{
+    color: black !important;
+}
+
+
+.sign-in-button{
+    font-family: 'Amatic SC', sans-serif !important;
+    background-color: #69EA5E;
+    margin-left: 10px;
+    border-radius: 15px;
+    font-size: 1.5vmax !important;
+    height: auto;
+}
+
+.sign-in-button:hover{
+    background-color: #105725;
+    color: #fafafa;
+}
+
+nav ul a:hover {
+   background-color: transparent;
+}
+
+.navbar-collapse{
+    background-color: white;
 }
 
 
@@ -57,16 +98,16 @@ h2 {
 }
 
 .nav-item-white:hover {
-  color: #c9c9c9 !important;
+  color: rgb(68, 211, 144);
   margin-bottom: 0;
 }
 
 .nav-item-black {
-  color: black !important;
+  color: black;
 }
 
 .nav-item-black:hover {
-  color: rgb(63, 63, 63) !important;
+  color: rgb(68, 211, 144);
   border-bottom: none !important;
   margin-bottom: 0;
 }
@@ -84,28 +125,35 @@ h2 {
 /*-----------------------Benefits --------------------------- */
 
 .benefits-section{
-    justify-content: center;
-    align-items: center;
+    align-items: center !important;
 }
 
 .benefits{
-    width: 100%;
+    width: 100% !important;
     height: auto;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
    }
 
 .benefits i{
     color: rgb(68, 211, 144);
-    margin-left: 6rem;
-    font-size: 6vmax;
+    margin-right: 5rem;
+    margin-left: 5rem;
+    font-size: 5vmax;
     
 }
 
-.benefits p{
+.benefits-icons p{
     font-family: "Joesfin Slab", sans-serif;
-    font-size: 3vmax;
+    font-size: 2vmax;
     color: black;
+    margin: 0 auto;
 }
 
+.benefits-icons{
+    width: 100vw;
+}
 
 /*-------------- Back to top buttons (courtesy of https://heathertovey.com/blog/floating-back-to-top-button/) ------ */
 
@@ -148,26 +196,28 @@ h2 {
 
 .nav-button-green{
     background-color: #69EA5E;
-    margin-left: 10px;
     border-radius: 15px;
+    font-size: 1vmax;
+    height: auto;
 }
 
 .nav-button-blue{
-background-color: #5BC8C1;
-margin-right: 10px;
-border-radius: 15px;
+    background-color: #5BC8C1;
+    border-radius: 15px;
+    font-size: 1vmax;
+    height: auto;
 }
 
 .nav-button-green:hover {
-  background-color: #105725 !important;
-  border: none !important;
-  color: #fafafa !important;
+    background-color: #105725 !important;
+    border: none !important;
+    color: #fafafa !important;
 }
 
 .nav-button-blue:hover {
-  background-color: #24316b !important;
-  border: none !important;
-  color: #fafafa !important;
+    background-color: #24316b !important;
+    border: none !important;
+    color: #fafafa !important;
 }
 
 .btn {
@@ -183,15 +233,21 @@ border-radius: 15px;
 /*---------------- register forms ------------------------ */
 
 .owner-form{
-    margin-top: 65px;
-    padding: 20px;
-    background-color: rgb(125, 236, 229);
+    margin-top: 75px;
+    padding: 2rem;
+  color: #000000;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 50px;
+  background-color: #fafafa;
 }
 
+
 .walker-form{
-    margin-top: 65px;
+    margin-top: 75px;
     padding: 20px;
-    background-color: rgb(125, 236, 229);
+    background-color: #fafafa;
+    font-weight: 900;
 }
 
 
@@ -201,7 +257,7 @@ border-radius: 15px;
     border-radius: 45%;
 }
 
-/*----------------------- Block Divider ------------------------- */
+/*----------------------- Block Divider (courtesy of https://codepen.io/stg/pen/ZYYQMJ) ------------------------- */
 
 .divider {								/* minor cosmetics */
     display: table; 
