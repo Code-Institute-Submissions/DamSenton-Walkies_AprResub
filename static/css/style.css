@@ -27,28 +27,55 @@ h2 {
 
 .masthead-content{
     background: url("../img/walkies-hero.jpg") no-repeat center center;
+    margin-top: 70px;
     height: 30vmax;
     width: 100%;
     align-items: center;
-    padding-top: 6rem;
-    margin-top: 65px !important;
+    padding-top: 5rem;
     position: relative;
 }
 
-nav a{
-    line-height: 50px;
+.masthead-subheading{
+    font-size: 3vmax;
 }
 
-.navbar{
+nav{
     background-color: #fafafa;
-    height: 80px;
     color: black;
+    }
+
+#navbar {
+    z-index: 2;
+    background-color: #fafafa;
+    height: auto;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: block;
+    transition: top 0.3s;
+}
+
+#navbar ul a {
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+    font-size: 2vmax;
+    line-height: 60px;
+}
+
+#navbar a:hover {
+    background-color: transparent;
+    color: rgb(72, 136, 141);
 }
 
 .navbar-brand{
-    font-family: 'Amatic SC', sans-serif !important;
-    font-size: 3vmax !important;
+    font-family: 'Amatic SC', sans-serif;
+    font-size: 3vmax;
     color: black;
+    line-height: 60px;
 }
 
 .navbar-brand:hover{
@@ -64,7 +91,7 @@ nav a{
 }
 
 #nav-toggler{
-    color: black !important;
+    color: black;
 }
 
 
@@ -75,11 +102,13 @@ nav a{
     border-radius: 15px;
     font-size: 1.5vmax !important;
     height: auto;
+    padding: 5px !important;
+    line-height: 60px !important;
 }
 
 .sign-in-button:hover{
-    background-color: #105725;
-    color: #fafafa;
+    background-color: #105725 !important;
+    color: #fafafa !important;
 }
 
 nav ul a:hover {
@@ -91,45 +120,14 @@ nav ul a:hover {
 }
 
 
-/* ----------------- hide nav bar ---------------*/
-
-.nav-item-white {
-  color: black;
-}
-
-.nav-item-white:hover {
-  color: rgb(68, 211, 144);
-  margin-bottom: 0;
-}
-
-.nav-item-black {
-  color: black;
-}
-
-.nav-item-black:hover {
-  color: rgb(68, 211, 144);
-  border-bottom: none !important;
-  margin-bottom: 0;
-}
-
-.white-background {
-  background-color: white;
-}
-
-.dark-background {
-  background-color: black;
-  padding: 0;
-}
-
-
 /*-----------------------Benefits --------------------------- */
 
 .benefits-section{
-    align-items: center !important;
+    align-items: center;
 }
 
 .benefits{
-    width: 100% !important;
+    width: 100%;
     height: auto;
     margin: 0 auto;
     justify-content: center;
@@ -149,10 +147,6 @@ nav ul a:hover {
     font-size: 2vmax;
     color: black;
     margin: 0 auto;
-}
-
-.benefits-icons{
-    width: 100vw;
 }
 
 /*-------------- Back to top buttons (courtesy of https://heathertovey.com/blog/floating-back-to-top-button/) ------ */
@@ -209,15 +203,15 @@ nav ul a:hover {
 }
 
 .nav-button-green:hover {
-    background-color: #105725 !important;
-    border: none !important;
-    color: #fafafa !important;
+    background-color: #105725;
+    border: none;
+    color: #fafafa;
 }
 
 .nav-button-blue:hover {
-    background-color: #24316b !important;
-    border: none !important;
-    color: #fafafa !important;
+    background-color: #24316b;
+    border: none;
+    color: #fafafa;
 }
 
 .btn {
@@ -232,7 +226,7 @@ nav ul a:hover {
 
 /*---------------- register forms ------------------------ */
 
-.owner-form{
+.register-owner-form{
     margin-top: 75px;
     padding: 2rem;
   color: #000000;
@@ -243,11 +237,14 @@ nav ul a:hover {
 }
 
 
-.walker-form{
-    margin-top: 75px;
-    padding: 20px;
-    background-color: #fafafa;
-    font-weight: 900;
+.register-walker-form{
+     margin-top: 75px;
+    padding: 2rem;
+  color: #000000;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 50px;
+  background-color: #fafafa;
 }
 
 
@@ -357,13 +354,13 @@ footer ul {
 }
 
 .social-media i {
-  font-size: 2vmax !important;
+  font-size: 2vmax;
   letter-spacing: 0px;
   padding-left: 45px;
   padding-right: 45px;
   margin: 1%;
   text-decoration: none;
-  color: #000000 !important;
+  color: #000000;
   bottom: 10px;
 }
 

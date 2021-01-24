@@ -35,8 +35,18 @@ def contact():
 
 
 @app.route("/sign_in")
-def sign_in_user():
+def sign_in():
     return render_template("sign-in.html")
+
+
+@app.route("/sign_in_owner")
+def sign_in_owner():
+    return render_template("sign-in-owner.html")
+
+
+@app.route("/sign_in_walker")
+def sign_in_walker():
+    return render_template("sign-in-walker.html")
 
 
 @app.route("/register_owner")
