@@ -15,18 +15,18 @@
 </head>
 
 
-<body>
+<body class="h-100">
     <a href="#" id="back-to-top" class="back-to-top" style="display: inline;"><i class="fas fa-angle-up"></i></a>
     <!-- Navigation -->
     <nav id="navbar">
-        <div class="nav-wrapper">
+        
             <a href="{{ url_for('index') }}" class="navbar-brand">Walkies</a>
             <a href="#" data-target="mobile-demo" id="nav-toggler" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="{{ url_for('index') }}" class="nav-link">Home</a></li>
                 <li><a href="{{ url_for('sign_in') }}" class="waves-effect waves-light btn sign-in-button">Sign In</a></li>
             </ul>
-        </div>
+       
     </nav>
 
     <ul class="sidenav" id="mobile-demo">

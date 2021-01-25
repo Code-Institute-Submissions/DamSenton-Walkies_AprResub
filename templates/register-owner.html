@@ -1,25 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
 
-<section class=" register-owner-form">
-    <h3 class="center-align">Register As A Dog Owner</h3>
+<section class="register-walker-form">
+    <h3 class="center-align">Register To Walk A Dog</h3>
 
-    <div class="row">
+    <div class="row center-align">
         <form class="col s12">
             <div class="row">
-                <div class="input-field col s6">
-                    <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-                    <label for="first_name">First Name</label>
-                </div>
-                <div class="input-field col s6">
-                    <input id="last_name" type="text" class="validate">
-                    <label for="last_name">Last Name</label>
-                </div>
-            </div>
-            <div class="row">
                 <div class="input-field col s12">
-                    <input disabled value="I am not editable" id="disabled" type="text" class="validate">
-                    <label for="disabled">Disabled</label>
+                    <input placeholder="Placeholder" id="username" type="text" class="validate">
+                    <label for="username">Username</label>
                 </div>
             </div>
             <div class="row">
@@ -35,17 +25,44 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col s12">
-                    This is an inline input field:
-                    <div class="input-field inline">
-                        <input id="email_inline" type="email" class="validate">
-                        <label for="email_inline">Email</label>
-                        <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
-                    </div>
+                <div class="age-group input-field col s12">
+                    <select>
+                        <option value="" disabled selected>Location</option>
+                        <option value="1">Haymarket</option>
+                        <option value="2">Leith</option>
+                        <option value="3">Morningside</option>
+                        <option value="3">New Town</option>
+                        <option value="3">Stockbridge</option>
+                    </select>
+                    <label>Materialize Select</label>
                 </div>
             </div>
+            <div class="row">
+                <div class="age-group input-field col s12">
+                    <select>
+                        <option value="" disabled selected>Preferred Age Group</option>
+                        <option value="1">18-21</option>
+                        <option value="2">21-25</option>
+                        <option value="3">25-30</option>
+                        <option value="3">30+</option>
+                    </select>
+                    <label>Materialize Select</label>
+                </div>
+            </div>
+
+
+            <button class="submit-button btn waves-effect waves-light" type="submit" name="action">Submit
+                <i class="material-icons right"></i>
+            </button>
         </form>
     </div>
-
+    <div class="row">
+        <div class="col s12">
+            <p class="center-align">
+                Already an owner?
+                <a href="{{ url_for('sign_in_owner') }}" class="light-blue-text darken-4">Log In</a>
+            </p>
+        </div>
+    </div>
 </section>
 {% endblock %}

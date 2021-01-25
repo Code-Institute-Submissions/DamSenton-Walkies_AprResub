@@ -1,29 +1,48 @@
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Josefin+Slab&display=swap');
 
+
+
 body {
-  font-family: "Josefin Slab", sans-serif;
-  padding: 0;
-  margin: 0;
-  background-color: #fafafa;
-  color: #202020;
-  z-index: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: "Josefin Slab", sans-serif;
+    padding: 0;
+    margin: 0;
+    background-color: #fafafa;
+    color: #202020;
+    z-index: 0;
+    height: 100%;
+    }
+
+.content{
+    flex: 1;
 }
 
-
 h1{
-    font-family: 'Amatic SC', sans-serif !important;
+    font-family: 'Amatic SC', sans-serif;
      
 }
 
 h2 {
-  font-family: "Joesfin Slab", sans-serif;
+    font-family: "Joesfin Slab", sans-serif;
+}
+
+p{
+    line-height: 1.5;
+    margin: 30px 0;
+    font-size: 2vmax;
 }
 
 .no-gutters{
     margin: 0 !important;
 }
 
-/*-------------- Nav Bar ------------------- */
+/*------------------------- Header -------------*/
+
+.masthead{
+    overflow: auto;
+    contain: content;
+}
 
 .masthead-content{
     background: url("../img/walkies-hero.jpg") no-repeat center center;
@@ -37,7 +56,17 @@ h2 {
 
 .masthead-subheading{
     font-size: 3vmax;
+    font-family: "Joesfin Slab", sans-serif ;
+    color: #fafafa;
 }
+
+.hero-container{
+    justify-content: center;
+}
+
+/*-------------- Nav Bar ------------------- */
+
+
 
 nav{
     background-color: #fafafa;
@@ -98,12 +127,13 @@ nav{
 .sign-in-button{
     font-family: 'Amatic SC', sans-serif !important;
     background-color: #69EA5E;
+    margin-top: 10px;
     margin-left: 10px;
     border-radius: 15px;
     font-size: 1.5vmax !important;
     height: auto;
     padding: 5px !important;
-    line-height: 60px !important;
+   
 }
 
 .sign-in-button:hover{
@@ -117,6 +147,12 @@ nav ul a:hover {
 
 .navbar-collapse{
     background-color: white;
+}
+
+nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul a.btn-flat, nav ul a.btn-floating {
+    margin-top: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
 }
 
 
@@ -188,6 +224,16 @@ nav ul a:hover {
 
 /*----------------- Buttons ------------- */
 
+.submit-button{
+     border-radius: 15px;
+    font-size: 1vmax;
+    height: auto;
+}
+
+.submit-button:hover{
+    background-color: #24316b;
+}
+
 .nav-button-green{
     background-color: #69EA5E;
     border-radius: 15px;
@@ -226,27 +272,69 @@ nav ul a:hover {
 
 /*---------------- register forms ------------------------ */
 
+.age-group{
+    display: inline;
+}
+
 .register-owner-form{
     margin-top: 75px;
     padding: 2rem;
-  color: #000000;
-  justify-content: space-around;
-  align-items: center;
-  margin-bottom: 50px;
-  background-color: #fafafa;
+    color: #000000;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 50px;
+    background-color: #fafafa;
 }
 
 
 .register-walker-form{
-     margin-top: 75px;
+    margin-top: 75px;
     padding: 2rem;
-  color: #000000;
-  justify-content: space-around;
-  align-items: center;
-  margin-bottom: 50px;
-  background-color: #fafafa;
+    color: #000000;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 50px;
+    background-color: #fafafa;
 }
 
+
+/*-------------------------- Sign in page ---------------*/
+
+.sign-in-page{
+    margin-top: 85px;
+}
+
+.sign-in-container{
+    height: 100%;
+}
+
+.sign-in-card{
+    align-items: center;
+    margin: 0 auto;
+    height: 200px;
+}
+
+.card .card-image img {
+    display: block;
+    border-radius: 2px 2px 0 0;
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 30rem;
+}
+
+.card-action{
+    justify-content: space-around;
+}
+
+/*--------------------------- Sign in Forms -----------------*/
+
+.sign-in-form{
+    margin-top: 90px;
+}
 
 /*-------------------------- Images ---------------------- */
 
@@ -376,8 +464,12 @@ footer ul {
   }
 }
 
+footer p{
+   font-size: 1vmax !important; 
+}
+
 .copyright {
   text-align: center;
   color: #000000;
-  font-size: 2vmax;
+  
 }
