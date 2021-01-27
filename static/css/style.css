@@ -3,15 +3,15 @@
 
 
 body {
+    background: url("../img/body-background.jpg") no-repeat center center;
     display: flex;
     flex-direction: column;
     font-family: "Josefin Slab", sans-serif;
     padding: 0;
     margin: 0;
-    background-color: #fafafa;
     color: #202020;
     z-index: 0;
-    height: 100%;
+    height: 150%;
     }
 
 .content{
@@ -37,6 +37,12 @@ p{
     margin: 0 !important;
 }
 
+section{
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: #fafafa;
+}
+
 /*------------------------- Header -------------*/
 
 .masthead{
@@ -46,7 +52,7 @@ p{
 
 .masthead-content{
     background: url("../img/walkies-hero.jpg") no-repeat center center;
-    margin-top: 70px;
+    margin-top: 75px;
     height: 30vmax;
     width: 100%;
     align-items: center;
@@ -69,7 +75,7 @@ p{
 
 
 nav{
-    background-color: #fafafa;
+    background-color: transparent;
     color: black;
     }
 
@@ -154,7 +160,19 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul
     margin-left: 15px;
     margin-right: 15px;
 }
+    
 
+ .z-depth-1, nav, .card-panel, .card, .toast, .btn, .btn-large, .btn-small, .btn-floating, .dropdown-content, .collapsible, .sidenav{
+    -webkit-box-shadow: 0, 0, 0, 0 rgb(0 0 0 0), 0, 0, 0, 0 rgb(0 0 0 0), 0, 0, 0, 0 rgb(0 0 0 0) !important;
+    box-shadow: 0, 0, 0, 0 rgb(0 0 0 0), 0, 0, 0, 0 rgb(0 0 0 0), 0 0px 0px 0 rgb(0 0 0 0) !important;
+}
+
+/*---------------------- Main Content ---------------------- */
+
+.main-content img{
+    width: 50%;
+    height: 50%;
+}
 
 /*-----------------------Benefits --------------------------- */
 
@@ -277,7 +295,7 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul
 }
 
 .register-owner-form{
-    margin-top: 75px;
+    margin-top: 10%;
     padding: 2rem;
     color: #000000;
     justify-content: space-around;
@@ -288,7 +306,7 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul
 
 
 .register-walker-form{
-    margin-top: 75px;
+    margin-top: 10%;
     padding: 2rem;
     color: #000000;
     justify-content: space-around;
@@ -301,7 +319,7 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul
 /*-------------------------- Sign in page ---------------*/
 
 .sign-in-page{
-    margin-top: 85px;
+    margin-top: 10%;
 }
 
 .sign-in-container{
@@ -332,8 +350,13 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul
 
 /*--------------------------- Sign in Forms -----------------*/
 
+.sign-in-container{
+    padding: 3%;
+}
+
 .sign-in-form{
-    margin-top: 90px;
+    margin-top: 10%;
+    padding: 3%;
 }
 
 /*-------------------------- Images ---------------------- */

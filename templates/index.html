@@ -13,53 +13,54 @@
     </div>
 </header>
 
-<div class="divider"><span></span><span>Benefits</span><span></span></div>
 
 
-<section class="benefits-section">
-    <div class="container-fluid benefits center-align">
-        <div class="row">
-            <div class="benefits-icons center-align">
-                <i class="fas fa-dog fa-5x">
-                    <p>Help Out</p>
-                </i> <i class="fas fa-user-friends fa-5x">
-                    <p>Make Friends</p>
-                </i><i class="fas fa-heartbeat fa-5x">
-                    <p>Get Active</p>
-                </i>
-            </div>
-        </div>
-    </div>
-</section>
-
-<div class="divider"><span></span><span>User Stories</span><span></span></div>
-
-<section>
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6 order-lg-2">
-                <div class="p-5">
-                    <img class="img-fluid round-image" src="#" alt="dachshund-walk">
-                </div>
-            </div>
-            <div class="col-lg-6 order-lg-1">
-                <div class="p-5">
-                    <h2 class="display-4">For those about to rock...</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio
-                        veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis
-                        recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+<section class="main-content">
+    <div class="divider"><span></span><span>Benefits</span><span></span></div>
+    <div class="benefits-section">
+        <div class="container-fluid benefits center-align">
+            <div class="row">
+                <div class="benefits-icons center-align">
+                    <i class="fas fa-dog fa-5x">
+                        <p>Help Out</p>
+                    </i> <i class="fas fa-user-friends fa-5x">
+                        <p>Make Friends</p>
+                    </i><i class="fas fa-heartbeat fa-5x">
+                        <p>Get Active</p>
+                    </i>
                 </div>
             </div>
         </div>
     </div>
-</section>
 
-<section>
+    <div class="divider"><span></span><span>User Stories</span><span></span></div>
+
+    <div class="user-stories">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-lg-2">
+                    <div class="p-5">
+                        <img class="img-fluid round-image" src="{{ url_for('static', filename = 'img/collie.jpeg') }}" alt="Collie">
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <div class="p-5">
+                        <h2 class="display-4">For those about to rock...</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio
+                            veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis
+                            recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6">
                 <div class="p-5">
-                    <img class="img-fluid round-image" src="../static/img/" alt="">
+                    <img class="img-fluid round-image" src="{{ url_for('static', filename = 'img/french-bulldog.jpg') }}" alt="French Bulldog">
                 </div>
             </div>
             <div class="col-lg-6">
@@ -72,14 +73,13 @@
             </div>
         </div>
     </div>
-</section>
 
-<section>
+
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6 order-lg-2">
                 <div class="p-5">
-                    <img class="img-fluid round-image" src="../static/img/" alt="">
+                    <img class="img-fluid round-image" src="{{ url_for('static', filename = 'img/dachshund-walk.jpg') }}" alt="Mini Dachshund">
                 </div>
             </div>
             <div class="col-lg-6 order-lg-1">

@@ -2,29 +2,32 @@
 {% block content %}
 
 <div class="content">
-<section class="sign-in-page center-align">
-    <h1>Sign In</h1>
-    <div class="container sign-in-container center-align">
-        <div class="row">
-            <div class="col-12 s12 m7">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="{{ url_for('static', filename = 'img/running-dogs.jpg') }}">
-                        <span class="card-title">Card Title</span>
-                    </div>
-                    <div class="card-content">
-                        <p>I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="{{ url_for('sign_in_owner') }}" class="waves-effect waves-light btn nav-button-green">Sign In As An Owner</a>
-            <a href="{{ url_for('sign_in_walker') }}" class="waves-effect waves-light btn nav-button-blue">Sign In As A Walker</a>
+
+    <section class="sign-in-page center-align">
+
+        <div class="container sign-in-container center-align">
+            <h1>Sign In</h1>
+            <div class="row">
+
+                <div class="col-12 s12 m7">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="{{ url_for('static', filename = 'img/running-dogs.jpg') }}">
+                        </div>
+                        <div class="card-content">
+                            <p>Please select from the options below!</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="{{ url_for('sign_in_owner') }}"
+                                class="waves-effect waves-light btn nav-button-green">Sign In As An Owner</a>
+                            <a href="{{ url_for('sign_in_walker') }}"
+                                class="waves-effect waves-light btn nav-button-blue">Sign In As A Walker</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-</section>
+    </section>
 </div>
 {% endblock content %}
