@@ -5,27 +5,27 @@
     <h3 class="center-align">Register To Walk A Dog</h3>
 
     <div class="row center-align">
-        <form class="col s12">
+        <form class="col s12" method="POST" action="{{ url_for('register_walker') }}">
             <div class="row">
                 <div class="input-field col s12">
-                    <input placeholder="Placeholder" id="username" type="text" class="validate">
-                    <label for="username">Username</label>
+                    <input placeholder="Placeholder" name="walker_username" id="walker_username" type="text" class="validate">
+                    <label for="walker_username">Username</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="password" type="password" class="validate">
-                    <label for="password">Password</label>
+                    <input id="walker_password" name="walker_password" type="password" class="validate">
+                    <label for="walker_password">Password</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="email" type="email" class="validate">
-                    <label for="email">Email</label>
+                    <input id="walker_email" name="walker_email" type="email" class="validate">
+                    <label for="walker_email">Email</label>
                 </div>
             </div>
             <div class="row">
-                <div class="age-group input-field col s12">
+                <div class="location input-field col s12" id="walker_location">
                     <select>
                         <option value="" disabled selected>Location</option>
                         <option value="1">Haymarket</option>
@@ -38,7 +38,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="age-group input-field col s12">
+                <div class="age-group input-field col s12" id="age_group">
                     <select>
                         <option value="" disabled selected>Age Group</option>
                         <option value="1">18-21</option>
