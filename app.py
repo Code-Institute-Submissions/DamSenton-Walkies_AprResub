@@ -34,6 +34,16 @@ def contact():
     return render_template("contact.html")
 
 
+@app.route("/sign_in_walker_page")
+def sign_in_walker_page():
+    return render_template("sign-in-walker.html")
+
+
+@app.route("/sign_in_owner_page")
+def sign_in_owner_page():
+    return render_template("sign-in-owner.html")
+
+
 @app.route("/sign_in")
 def sign_in():
     return render_template("sign-in.html")
@@ -105,13 +115,13 @@ def register_walker():
 def sign_in_owner():
     if request.method == "POST":
         # Checks to see if this username is already taken
-        existing_user = mongo.db.owners.find_one(
+        existing_owner = mongo.db.owners.find_one(
             {"owner_username": request.form.get("owner_username").lower()})
 
-        if existing_user:
+        if existing_owner:
             # Make sure passwords match
             if check_password_hash(
-                    existing_user[
+                    existing_owner[
                         "owner_password"], request.form.get("owner_password")):
                 session["user"] = request.form.get(
                     "owner_username").lower()
@@ -139,13 +149,13 @@ def sign_in_owner():
 def sign_in_walker():
     if request.method == "POST":
         # Checks to see if this username is already taken
-        existing_user = mongo.db.walkers.find_one(
+        existing_walker = mongo.db.walkers.find_one(
             {"walker_username": request.form.get("walker_username").lower()})
 
-        if existing_user:
+        if existing_walker:
             # Make sure passwords match
             if check_password_hash(
-                    existing_user[
+                    existing_walker[
                         "walker_password"], request.form.get(
                             "walker_password")):
                 session["user"] = request.form.get(
@@ -195,7 +205,7 @@ def owner_profile(owner_username):
 def walker_profile(walker_username):
     # Take session user's username from MongoDB
     walker_username = mongo.db.walkers.find_one(
-        {"walker_username": session["type"]})["walker_username"]
+        {"walker_username": session["user"]})["walker_username"]
 
     if session["user"]:
         return render_template(

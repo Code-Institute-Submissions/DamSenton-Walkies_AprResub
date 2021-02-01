@@ -33,10 +33,11 @@
             {% elif session.type == "owner" %}
             <li><a href="{{ url_for('owner_profile', owner_username=session['user']) }}" class="nav-link">Profile</a>
             </li>
+            {% endif %}
             <li><a href="{{ url_for('logout') }}" class="waves-effect waves-light btn sign-out-button">Log Out</a></li>
-            {% endif %}
-            {% endif %}
+            {% else %}
             <li><a href="{{ url_for('sign_in') }}" class="waves-effect waves-light btn sign-in-button">Sign In</a></li>
+            {% endif %}
         </ul>
 
     </nav>
