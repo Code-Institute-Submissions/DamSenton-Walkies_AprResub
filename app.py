@@ -48,18 +48,25 @@ def register_owner():
 
         if existing_owner:
             flash("Username already exists")
-            return redirect(url_for("register-_owner"))
+            return redirect(url_for("register_owner"))
 
         register_owner = {
             "owner_username": request.form.get("owner_username").lower(),
-            "owner_password": generate_password_hash(request.form.get("owner_password"))
+            "owner_password": generate_password_hash(
+                request.form.get("owner_password")),
+            "ownerr_email": request.form.get("owner_email").lower(),
+            "owner_location": request.form.get("owner_location").lower(),
+            "preferred_age_group": request.form.get("age_group")
+
+
         }
         mongo.db.owners.insert_one(register_owner)
 
         # creates a new session cookie for the user
         session["user"] = request.form.get("owner_username").lower()
         flash("Registration Successful!")
-        return redirect(url_for("owner_profile", owner_username=session["user"]))
+        return redirect(url_for(
+            "owner_profile", owner_username=session["user"]))
 
     return render_template("register-owner.html")
 
@@ -77,14 +84,19 @@ def register_walker():
 
         register_walker = {
             "walker_username": request.form.get("walker_username").lower(),
-            "walker_password": generate_password_hash(request.form.get("walker_password"))
+            "walker_password": generate_password_hash(
+                request.form.get("walker_password")),
+            "walker_email": request.form.get("walker_email").lower(),
+            "walker_location": request.form.get("walker_location").lower(),
+            "age_group": request.form.get("age_group")
         }
         mongo.db.walkers.insert_one(register_walker)
 
         # Create a new session cookie for the user
         session["user"] = request.form.get("walker_username").lower()
         flash("Registration Successful!")
-        return redirect(url_for("walker_profile", walker_username=session["user"]))
+        return redirect(url_for("walker_profile",
+                                walker_username=session["user"]))
 
     return render_template("register-walker.html")
 
@@ -99,10 +111,16 @@ def sign_in_owner():
         if existing_user:
             # Make sure passwords match
             if check_password_hash(
-                    existing_user["owner_password"], request.form.get("owner_password")):
-                session["user"] = request.form.get("owner_username").lower()
+                    existing_user[
+                        "owner_password"], request.form.get("owner_password")):
+                session["user"] = request.form.get(
+                    "owner_username").lower()
+                session["type"] = "owner"
+                # Here
+
                 flash("Welcome, {}".format(request.form.get("owner_username")))
-                return redirect(url_for("owner_profile", owner_username=session["user"]))
+                return redirect(url_for(
+                    "owner_profile", owner_username=session["user"]))
 
             else:
                 # Invalid password input
@@ -125,24 +143,39 @@ def sign_in_walker():
             {"walker_username": request.form.get("walker_username").lower()})
 
         if existing_user:
-            # Make sure password matches
+            # Make sure passwords match
             if check_password_hash(
-                    existing_user["walker_password"], request.form.get("walker_password")):
-                session["user"] = request.form.get("walker_username").lower()
-                flash("Welcome, {}".format(request.form.get("walker_username")))
-                return redirect(url_for("walker_profile", walker_username=session["user"]))
+                    existing_user[
+                        "walker_password"], request.form.get(
+                            "walker_password")):
+                session["user"] = request.form.get(
+                    "walker_username").lower()
+                session["type"] = "walker"
+
+                flash("Welcome, {}".format(
+                    request.form.get("walker_username")))
+                return redirect(url_for(
+                    "walker_profile", walker_username=session["user"]))
 
             else:
-                # invalid password
+                # Invalid password input
                 flash("Incorrect Username and/or Password")
                 return redirect(url_for("sign_in_walker"))
 
         else:
-            # Invalid Username
+            # Invalid username
             flash("Incorrect Username and/or Password")
             return redirect(url_for("sign_in_walker"))
 
     return render_template("sign-in-walker.html")
+
+
+@app.route("/logout")
+def logout():
+    # remove user from session cookies
+    flash("You have been logged out")
+    session.pop("user")
+    return redirect(url_for("sign_in"))
 
 
 @app.route("/owner_profile/<owner_username>", methods=["GET", "POST"])
@@ -152,7 +185,8 @@ def owner_profile(owner_username):
         {"owner_username": session["user"]})["owner_username"]
 
     if session["user"]:
-        return render_template("owner-profile.html", owner_username=owner_username)
+        return render_template(
+            "owner-profile.html", owner_username=owner_username)
 
     return redirect(url_for("sign_in_owner"))
 
@@ -161,10 +195,11 @@ def owner_profile(owner_username):
 def walker_profile(walker_username):
     # Take session user's username from MongoDB
     walker_username = mongo.db.walkers.find_one(
-        {"walker_username": session["user"]})["walker_username"]
+        {"walker_username": session["type"]})["walker_username"]
 
     if session["user"]:
-        return render_template("walker-profile.html", walker_username=walker_username)
+        return render_template(
+            "walker-profile.html", walker_username=walker_username)
 
     return redirect(url_for("sign_in_walker"))
 

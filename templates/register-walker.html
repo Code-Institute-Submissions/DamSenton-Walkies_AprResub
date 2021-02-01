@@ -8,43 +8,42 @@
         <form class="col s12" method="POST" action="{{ url_for('register_walker') }}">
             <div class="row">
                 <div class="input-field col s12">
-                    <input placeholder="Placeholder" name="walker_username" id="walker_username" type="text" class="validate">
+                    <input placeholder="Placeholder" name="walker_username" id="walker_username" type="text" class="validate" required>
                     <label for="walker_username">Username</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="walker_password" name="walker_password" type="password" class="validate">
+                    <input id="walker_password" name="walker_password" type="password" class="validate" required>
                     <label for="walker_password">Password</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="walker_email" name="walker_email" type="email" class="validate">
+                    <input id="walker_email" name="walker_email" type="email" class="validate" required>
                     <label for="walker_email">Email</label>
                 </div>
             </div>
             <div class="row">
                 <div class="location input-field col s12" id="walker_location">
-                    <select>
+                    <select name="walker_location" required>
                         <option value="" disabled selected>Location</option>
-                        <option value="1">Haymarket</option>
-                        <option value="2">Leith</option>
-                        <option value="3">Morningside</option>
-                        <option value="3">New Town</option>
-                        <option value="3">Stockbridge</option>
+                        <option value="Haymarket">Haymarket</option>
+                        <option value="Leith">Leith</option>
+                        <option value="MoNew Town">New Town</option>
+                        <option value="Stockbridge">Stockbridge</option>
                     </select>
                     <label>Materialize Select</label>
                 </div>
             </div>
             <div class="row">
                 <div class="age-group input-field col s12" id="age_group">
-                    <select>
+                    <select name="age_group" required>
                         <option value="" disabled selected>Age Group</option>
-                        <option value="1">18-21</option>
-                        <option value="2">21-25</option>
-                        <option value="3">25-30</option>
-                        <option value="3">30+</option>
+                        <option value="18-21">18-21</option>
+                        <option value="21-25">21-25</option>
+                        <option value="25-30">25-30</option>
+                        <option value="30+">30+</option>
                     </select>
                     <label>Materialize Select</label>
                 </div>
