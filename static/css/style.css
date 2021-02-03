@@ -126,40 +126,6 @@ nav{
 }
 
 
-.sign-in-button{
-    font-family: 'Amatic SC', sans-serif !important;
-    background-color: #69EA5E;
-    margin-top: 10px;
-    margin-left: 10px;
-    border-radius: 15px;
-    font-size: 1.5vmax !important;
-    height: auto;
-    padding: 5px !important;
-   
-}
-
-.sign-in-button:hover{
-    background-color: #105725 !important;
-    color: #fafafa !important;
-}
-
-.sign-out-button{
-    font-family: 'Amatic SC', sans-serif !important;
-    color: #fafafa;
-    background-color: rgb(241, 63, 63);
-    margin-top: 10px;
-    margin-left: 10px;
-    border-radius: 15px;
-    font-size: 1.5vmax !important;
-    height: auto;
-    padding: 5px !important;
-}
-
-.sign-out-button:hover{
-    background-color: rgb(238, 8, 8);
-    color: #fafafa;
-}
-
 nav ul a:hover {
    background-color: transparent;
 }
@@ -255,6 +221,40 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul
 
 /*----------------- Buttons ------------- */
 
+.sign-in-button{
+    font-family: 'Amatic SC', sans-serif !important;
+    background-color: #69EA5E;
+    margin-top: 10px;
+    margin-left: 10px;
+    border-radius: 15px;
+    font-size: 1.5vmax !important;
+    height: auto;
+    padding: 5px !important;
+   
+}
+
+.sign-in-button:hover{
+    background-color: #105725 !important;
+    color: #fafafa !important;
+}
+
+.sign-out-button{
+    font-family: 'Amatic SC', sans-serif !important;
+    color: #fafafa;
+    background-color: rgb(241, 63, 63);
+    margin-top: 10px;
+    margin-left: 10px;
+    border-radius: 15px;
+    font-size: 1.5vmax !important;
+    height: auto;
+    padding: 5px !important;
+}
+
+.sign-out-button:hover{
+    background-color: rgb(238, 8, 8);
+    color: #fafafa;
+}
+
 .submit-button{
      border-radius: 15px;
     font-size: 1vmax;
@@ -299,6 +299,20 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul
     text-transform: uppercase;
     border-radius: 20;
     font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+.image-upload-button{
+    font-family: 'Amatic SC', sans-serif;
+    background-color: #69EA5E;
+    border-radius: 15px;
+    font-size: 1.5vmax;
+    height: auto;
+    padding: 5px
+}
+
+.image-upload-button:hover{
+    background-color: #105725;
+    color: #fafafa;
 }
 
 /*---------------- register forms ------------------------ */
@@ -375,15 +389,13 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul
 
 /*------------------------- Profile Pages ----------------- */
 
-.profile-page{
-    margin-top: 10%;
-}
-
 .owner-profile{
+    margin-top: 10%;
     padding: 5%;
 }
 
 .walker-profile{
+    margin-top: 10%;
     padding: 5%;
 }
 
@@ -449,6 +461,14 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul
     height: auto;
     margin: 0 auto;
     align-items: center;
+}
+
+.image-upload h2{
+    margin-bottom: 4rem;
+}
+
+.image-input{
+    margin-bottom: 2rem;
 }
 
 
