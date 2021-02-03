@@ -245,15 +245,16 @@ def upload_image():
     if request.method == "POST":
         if request.files:
             image = request.files["image"]
+            image_result = permitted_image(image.filename)
             if image.filename == "":
                 flash("Image must have a filename")
-                return redirect(request.url)
-            if not permitted_image(image.filename):
+                return redirect((url_for("sign_in_owner")
+            if image_result == False:
                 flash("Image type is not supported")
-                return redirect(request.url)
+                return redirect(url_for("sign_in_owner"))
 
             else:
-                filename = secure_filename(image.filename)
+                filename=secure_filename(image.filename)
 
             image.save(os.path.join(
                 app.config["image_uploads"], filename))
