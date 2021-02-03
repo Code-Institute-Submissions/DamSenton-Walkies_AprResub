@@ -256,13 +256,16 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul
 }
 
 .submit-button{
-     border-radius: 15px;
+    background-color: #69EA5E !important;
+    border-radius: 15px;
     font-size: 1vmax;
     height: auto;
 }
 
 .submit-button:hover{
-    background-color: #24316b;
+    background-color: #105725 !important;
+    border: none;
+    color: #fafafa;
 }
 
 .nav-button-green{
@@ -378,12 +381,16 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul
 /*--------------------------- Sign in Forms -----------------*/
 
 .sign-in-container{
-    padding: 3%;
+    padding: 1%;
 }
 
 .sign-in-form{
     margin-top: 10%;
-    padding: 3%;
+    padding: 1%;
+}
+
+.log-in-icon{
+    color: rgb(68, 211, 144);;
 }
 
 

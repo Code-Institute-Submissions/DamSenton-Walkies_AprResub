@@ -244,11 +244,6 @@ def upload_image():
     # Upload Image to workspace
     if request.method == "POST":
         if request.files:
-            # if not permitted_file_size(request.cookies.get("filesize")):
-            #     flash("File size is too large")
-            #     return redirect(request.url)
-
-            print(request.cookies)
             image = request.files["image"]
             if image.filename == "":
                 flash("Image must have a filename")
