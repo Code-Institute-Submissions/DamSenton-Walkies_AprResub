@@ -5,6 +5,7 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.utils import secure_filename
 if os.path.exists("env.py"):
     import env
 
@@ -212,6 +213,59 @@ def walker_profile(walker_username):
             "walker-profile.html", walker_username=walker_username)
 
     return redirect(url_for("sign_in_walker"))
+
+
+app.config["image_uploads"] = "/workspace/Walkies/static/uploads"
+app.config["permitted_image_types"] = ["PNG", "JPG", "JPEG"]
+# app.config["max_file_size"] = 0.5 * 1024 * 1024
+
+
+def permitted_image(filename):
+    if "." not in filename:
+        return False
+
+    ext = filename.rsplit(".", 1)[1]
+
+    if ext.upper() in app.config["permitted_image_types"]:
+        return True
+    else:
+        return False
+
+
+# def permitted_file_size(filesize):
+#     if int(filesize) <= app.config["max_file_size"]:
+#         return True
+#     else:
+#         return False
+
+
+@app.route("/upload_image", methods=["GET", "POST"])
+def upload_image():
+    # Upload Image to workspace
+    if request.method == "POST":
+        if request.files:
+            # if not permitted_file_size(request.cookies.get("filesize")):
+            #     flash("File size is too large")
+            #     return redirect(request.url)
+
+            print(request.cookies)
+            image = request.files["image"]
+            if image.filename == "":
+                flash("Image must have a filename")
+                return redirect(request.url)
+            if not permitted_image(image.filename):
+                flash("Image type is not supported")
+                return redirect(request.url)
+
+            else:
+                filename = secure_filename(image.filename)
+
+            image.save(os.path.join(
+                app.config["image_uploads"], filename))
+            flash("Image Succesfully Uploaded")
+            return redirect(request.url)
+
+    return render_template("owner-profile.html")
 
 
 if __name__ == "__main__":

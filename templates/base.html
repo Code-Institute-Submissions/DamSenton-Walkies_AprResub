@@ -44,14 +44,19 @@
 
     <ul class="sidenav" id="mobile-demo">
         <li><a href="{{ url_for('index') }}" class="nav-link">Home</a></li>
-        {% if session.user == owner_username %}
-        <li><a href="{{ url_for('owner_profile', owner_username=session['user']) }}">Profile</a></li>
-        {% elif session.user == walker_username %}
-        <li><a href="{{ url_for('walker_profile', walker_username=session['user']) }}">Profile</a></li>
-        <li><a href="{{ url_for('logout') }}">Log Out</a></li>
-        {% endif %}
+        {% if session.user %}
 
-        <li><a href="{{ url_for('sign_in') }}">Sign In</a></li>
+        {% if session.type == "walker" %}
+        <li><a href="{{ url_for('walker_profile', walker_username=session['user']) }} " class="nav-link">Profile</a>
+        </li>
+        {% elif session.type == "owner" %}
+        <li><a href="{{ url_for('owner_profile', owner_username=session['user']) }}" class="nav-link">Profile</a>
+        </li>
+        {% endif %}
+        <li><a href="{{ url_for('logout') }}" class="nav-link">Log Out</a></li>
+        {% else %}
+        <li><a href="{{ url_for('sign_in') }}" class="nav-link">Sign In</a></li>
+        {% endif %}
     </ul>
 
     <!----- Header Element ----->
