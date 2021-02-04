@@ -28,7 +28,7 @@
             {% if session.user %}
 
             {% if session.type == "walker" %}
-            <li><a href="{{ url_for('walker_profile', walker_username=session['user']) }} " class="nav-link">Profile</a>
+            <li><a href="{{ url_for('walker_profile', walker_username=session['user']) }}" class="nav-link">Profile</a>
             </li>
             {% elif session.type == "owner" %}
             <li><a href="{{ url_for('owner_profile', owner_username=session['user']) }}" class="nav-link">Profile</a>
