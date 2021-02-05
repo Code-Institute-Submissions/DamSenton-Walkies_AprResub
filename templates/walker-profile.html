@@ -10,13 +10,14 @@
                 </h3>
 
                 {% for information in info %}
-                {% if walkers == owners %}
-                <div class="col-9">
-                    <strong>{{ info.owner_username }}</strong>
+                    {% if walkers == owners %}
+
+                    {{ info.owner_username }}
                     {{ info.owner_location }}
+                    {{ info.owner_email}}
                     {{ info.dog_name }}
-                </div>
-                {% endif %}
+
+                    {% endif %}
                 {% endfor %}
 
             </div>

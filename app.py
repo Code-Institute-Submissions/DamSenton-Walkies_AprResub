@@ -71,7 +71,7 @@ def register_owner():
             "owner_username": request.form.get("owner_username").lower(),
             "owner_password": generate_password_hash(
                 request.form.get("owner_password")),
-            "ownerr_email": request.form.get("owner_email").lower(),
+            "owner_email": request.form.get("owner_email").lower(),
             "owner_location": request.form.get("owner_location").lower(),
             "preferred_age_group": request.form.get("preferred_age_group")
         }
@@ -257,7 +257,8 @@ def upload_image():
             #     if not permitted_file_size(request.cookies["filesize"]):
             #         print("Filesize exceeded maximum limit")
             #         return redirect(url_for(
-            #             "owner_profile", owner_username=mongo.db.owners.find_one(
+            #             "owner_profile",
+            #  owner_username=mongo.db.owners.find_one(
             #                 {"owner_username": session[
             #                     "user"]})["owner_username"]))
 
