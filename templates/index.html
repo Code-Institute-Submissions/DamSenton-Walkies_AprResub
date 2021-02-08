@@ -35,63 +35,65 @@
 
     <div class="divider"><span></span><span>User Stories</span><span></span></div>
 
-    <div class="user-stories">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 order-lg-2">
-                    <div class="p-5">
-                        <img class="img-fluid round-image" src="{{ url_for('static', filename = 'img/collie.jpeg') }}" alt="Collie">
-                    </div>
-                </div>
-                <div class="col-lg-6 order-lg-1">
-                    <div class="p-5">
-                        <h2 class="display-4">For those about to rock...</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio
-                            veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis
-                            recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
-                    </div>
-                </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="p-5">
+                <img class="round-image" src="{{ url_for('static', filename = 'img/collie.jpeg') }}"
+                    alt="Collie">
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="p-5">
+                <h2 class="display-4">For those about to rock...</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio
+                    veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis
+                    recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"><span></span><span>O</span><span></span></div>
+
+    <div class="row">
+        <div class="col">
+            <div class="p-5">
+                <img class="round-image" src="{{ url_for('static', filename = 'img/french-bulldog.jpg') }}"
+                    alt="French Bulldog">
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="p-5">
+                <h2 class="display-4">We salute you!</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio
+                    veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis
+                    recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"><span></span><span>O</span><span></span></div>
+
+    <div class="row">
+        <div class="col">
+            <div class="p-5">
+                <img class="round-image" src="{{ url_for('static', filename = 'img/dachshund-walk.jpg') }}"
+                    alt="Mini Dachshund">
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="p-5">
+                <h2 class="display-4">Let there be rock!</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio
+                    veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis
+                    recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
             </div>
         </div>
     </div>
 
 
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6">
-                <div class="p-5">
-                    <img class="img-fluid round-image" src="{{ url_for('static', filename = 'img/french-bulldog.jpg') }}" alt="French Bulldog">
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="p-5">
-                    <h2 class="display-4">We salute you!</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio
-                        veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis
-                        recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6 order-lg-2">
-                <div class="p-5">
-                    <img class="img-fluid round-image" src="{{ url_for('static', filename = 'img/dachshund-walk.jpg') }}" alt="Mini Dachshund">
-                </div>
-            </div>
-            <div class="col-lg-6 order-lg-1">
-                <div class="p-5">
-                    <h2 class="display-4">Let there be rock!</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio
-                        veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis
-                        recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
-                </div>
-            </div>
-        </div>
-    </div>
 </section>
 
 {% endblock %}

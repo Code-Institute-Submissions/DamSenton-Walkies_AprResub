@@ -14,10 +14,11 @@ app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
-app.config["image_uploads"] = "./static/uploads"
-app.config["permitted_image_types"] = ["PNG", "JPG", "JPEG"]
-app.config["max_file_size"] = 0.5 * 1024 * 1024
 app.secret_key = os.environ.get("SECRET_KEY")
+# app.config["register_owner"] = mongo.db.owners.dog_image.insert_one()
+# app.config["permitted_image_types"] = ["PNG", "JPG", "JPEG"]
+# app.config["max_file_size"] = 0.5 * 1024 * 1024
+
 
 mongo = PyMongo(app)
 
@@ -80,6 +81,41 @@ def register_owner():
         flash("Registration Successful!")
         return redirect(url_for(
             "owner_profile", owner_username=session["user"]))
+
+    # if request.method == "POST":
+
+    #     if request.files:
+
+    #             image = request.files["image"]
+
+    #             if image.filename == "":
+    #                 print("No filename")
+    #                 return redirect(url_for(
+    #                     "owner_profile", owner_username=mongo.db.owners.find_one(
+    #                         {"owner_username": session[
+    #                             "user"]})["owner_username"]))
+
+    #             if permitted_image(image.filename):
+    #                 filename = secure_filename(image.filename)
+
+    #                 image.save(os.path.join(
+    #                     app.config["image_uploads"], (filename)))
+
+    #                 print("Image saved")
+
+    #                 return redirect(url_for(
+    #                     "owner_profile", owner_username=mongo.db.owners.find_one(
+    #                         {"owner_username": session[
+    #                             "user"]})["owner_username"]))
+
+    #             else:
+    #                 print("That file extension is not allowed")
+    #                 return redirect(url_for(
+    #                     "owner_profile", owner_username=mongo.db.owners.find_one(
+    #                         {"owner_username": session[
+    #                             "user"]})["owner_username"]))
+
+    #     return render_template("owner-profile.html")
 
     return render_template("register-owner.html")
 
@@ -237,53 +273,53 @@ def permitted_file_size(filesize):
         return False
 
 
-@app.route("/upload_image", methods=["GET", "POST"])
-def upload_image():
+# @app.route("/upload_image", methods=["GET", "POST"])
+# def upload_image():
 
-    if request.method == "POST":
+#     if request.method == "POST":
 
-        if request.files:
+#         if request.files:
 
-            # if "filesize" in request.cookies:
+#             # if "filesize" in request.cookies:
 
-            #     if not permitted_file_size(request.cookies["filesize"]):
-            #         print("Filesize exceeded maximum limit")
-            #         return redirect(url_for(
-            #             "owner_profile",
-            #  owner_username=mongo.db.owners.find_one(
-            #                 {"owner_username": session[
-            #                     "user"]})["owner_username"]))
+#             #     if not permitted_file_size(request.cookies["filesize"]):
+#             #         print("Filesize exceeded maximum limit")
+#             #         return redirect(url_for(
+#             #             "owner_profile",
+#             #  owner_username=mongo.db.owners.find_one(
+#             #                 {"owner_username": session[
+#             #                     "user"]})["owner_username"]))
 
-            image = request.files["image"]
+#             image = request.files["image"]
 
-            if image.filename == "":
-                print("No filename")
-                return redirect(url_for(
-                    "owner_profile", owner_username=mongo.db.owners.find_one(
-                        {"owner_username": session[
-                            "user"]})["owner_username"]))
+#             if image.filename == "":
+#                 print("No filename")
+#                 return redirect(url_for(
+#                     "owner_profile", owner_username=mongo.db.owners.find_one(
+#                         {"owner_username": session[
+#                             "user"]})["owner_username"]))
 
-            if permitted_image(image.filename):
-                filename = secure_filename(image.filename)
+#             if permitted_image(image.filename):
+#                 filename = secure_filename(image.filename)
 
-                image.save(os.path.join(
-                    app.config["image_uploads"], (filename)))
+#                 image.save(os.path.join(
+#                     app.config["image_uploads"], (filename)))
 
-                print("Image saved")
+#                 print("Image saved")
 
-                return redirect(url_for(
-                    "owner_profile", owner_username=mongo.db.owners.find_one(
-                        {"owner_username": session[
-                            "user"]})["owner_username"]))
+#                 return redirect(url_for(
+#                     "owner_profile", owner_username=mongo.db.owners.find_one(
+#                         {"owner_username": session[
+#                             "user"]})["owner_username"]))
 
-            else:
-                print("That file extension is not allowed")
-                return redirect(url_for(
-                    "owner_profile", owner_username=mongo.db.owners.find_one(
-                        {"owner_username": session[
-                            "user"]})["owner_username"]))
+#             else:
+#                 print("That file extension is not allowed")
+#                 return redirect(url_for(
+#                     "owner_profile", owner_username=mongo.db.owners.find_one(
+#                         {"owner_username": session[
+#                             "user"]})["owner_username"]))
 
-    return render_template("owner-profile.html")
+#     return render_template("owner-profile.html")
 
 
 # @app.route("/upload_image", methods=["GET", "POST"])

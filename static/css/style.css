@@ -4,6 +4,7 @@
 
 body {
     background: url("../img/body-background.jpg") no-repeat center center;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     font-family: "Josefin Slab", sans-serif;
@@ -148,9 +149,29 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul
 
 /*---------------------- Main Content ---------------------- */
 
+.main-content{
+    padding: 3%;
+    margin-bottom: 20px;
+    border-radius: 15px;
+}
+
 .main-content img{
-    width: 50%;
+    width: 70%;
     height: 50%;
+    display: flex;
+    justify-content: center;
+    margin:  0 auto;
+    margin-bottom: 20px;
+}
+
+.round-image{
+    margin: 0 auto;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+
+.p-5{
+    margin-bottom: 3%;
 }
 
 /*-----------------------Benefits --------------------------- */
@@ -399,12 +420,19 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul
 .owner-profile{
     margin-top: 10%;
     padding: 5%;
+    position: relative;;
 }
 
 .walker-profile{
     margin-top: 15%;
     padding: 3%;
 }
+
+.collapsible i{
+    float: right;
+    text-align: center;
+}
+
 
 /*-------------------------- Walker Profile -------------------*/
 
@@ -423,9 +451,7 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul
 
 /*-------------------------- Images ---------------------- */
 
-.round-image{
-    border-radius: 45%;
-}
+
 
 /*----------------------- Block Divider (courtesy of https://codepen.io/stg/pen/ZYYQMJ) ------------------------- */
 
@@ -523,8 +549,10 @@ footer {
   position: relative;
   bottom: 0;
   width: 100%;
-  padding-bottom: 10px;
+  padding: 0;
   margin: 0;
+  margin-top: 20px;
+  background-color: transparent;
 }
 
 footer ul {
