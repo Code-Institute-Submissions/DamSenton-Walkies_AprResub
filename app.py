@@ -14,6 +14,9 @@ app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
+app.config["image_uploads"] = "./static/uploads"
+app.config["permitted_image_types"] = ["PNG", "JPG", "JPEG"]
+app.config["max_file_size"] = 0.5 * 1024 * 1024
 app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
@@ -23,12 +26,6 @@ mongo = PyMongo(app)
 @app.route("/index")
 def index():
     return render_template("index.html")
-
-
-@app.route("/owner_info")
-def owner_info():
-    info = list(mongo.db.owners.find())
-    return render_template("walker-profile.html", owners=info)
 
 
 @app.route("/about")
@@ -73,7 +70,8 @@ def register_owner():
                 request.form.get("owner_password")),
             "owner_email": request.form.get("owner_email").lower(),
             "owner_location": request.form.get("owner_location").lower(),
-            "preferred_age_group": request.form.get("preferred_age_group")
+            "preferred_age_group": request.form.get("preferred_age_group"),
+            "dog_name": request.form.get("dog_name")
         }
         mongo.db.owners.insert_one(register_owner)
 
@@ -209,21 +207,15 @@ def owner_profile(owner_username):
 @app.route("/walker_profile/<walker_username>", methods=["GET", "POST"])
 def walker_profile(walker_username):
     # Take session user's username from MongoDB
-    walker_username = mongo.db.walkers.find_one(
-        {"walker_username": session["user"]})["walker_username"]
-    walkers = mongo.db.walkers.age_group
-    owners = mongo.db.owners.preferred_age_group
+    walker = mongo.db.walkers.find_one(
+        {"walker_username": session["user"]})
+    owners = mongo.db.owners.find()
     if session["user"]:
         return render_template(
             "walker-profile.html",
-            walker_username=walker_username, walkers=walkers, owners=owners)
+            walker=walker, owners=owners)
 
     return redirect(url_for("sign_in_walker"))
-
-
-app.config["image_uploads"] = "/workspace/Walkies/static/uploads"
-app.config["permitted_image_types"] = ["PNG", "JPG", "JPEG"]
-app.config["max_file_size"] = 0.5 * 1024 * 1024
 
 
 def permitted_image(filename):
@@ -275,7 +267,7 @@ def upload_image():
                 filename = secure_filename(image.filename)
 
                 image.save(os.path.join(
-                    app.config["image_uploads"], filename))
+                    app.config["image_uploads"], (filename)))
 
                 print("Image saved")
 

@@ -3,38 +3,38 @@
 
 <section class="register-walker-form">
     <h3 class="center-align">Register Your Dog</h3>
-
     <div class="row center-align">
         <form class="col s12" method="POST" action="{{ url_for('register_owner') }}">
             <div class="row">
                 <div class="input-field col s12">
                     <input placeholder="Enter Your Username Here" name="owner_username" id="owner_username" type="text"
-                        class="validate" required>
+                        minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
                     <label for="owner_username">Username</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
                     <input placeholder="Enter Your Password Here" name="owner_password" id="owner_password"
-                        type="password" class="validate" required>
+                        type="password" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate"
+                        required>
                     <label for="owner_password">Password</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input placeholder="Email Address" name="owner_email" id="owner_email" type="email"
-                        class="validate" required>
+                    <input placeholder="Email Address" name="owner_email" id="owner_email" type="email" class="validate"
+                        required>
                     <label for="owner_email">Email</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input placeholder="Name Of Dog" name="dog_name" id="dog_name" type="text" class="validate" required>
+                    <input placeholder="Name Of Dog" name="dog_name" id="dog_name" type="text" class="validate"
+                        required>
                     <label for="dog_name">Name of Dog</label>
                 </div>
             </div>
             <div class="row">
-
                 <div class="location input-field col s12" id="owner_location">
                     <select name="owner_location" required>
                         <option value="" disabled selected>Location</option>
@@ -59,7 +59,6 @@
                     <label>Materialize Select</label>
                 </div>
             </div>
-
             <button class="submit-button btn waves-effect waves-light" type="submit" name="action">Submit
                 <i class="material-icons right"></i>
             </button>

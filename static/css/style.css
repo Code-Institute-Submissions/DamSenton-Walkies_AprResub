@@ -402,8 +402,23 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul
 }
 
 .walker-profile{
-    margin-top: 10%;
-    padding: 5%;
+    margin-top: 15%;
+    padding: 3%;
+}
+
+/*-------------------------- Walker Profile -------------------*/
+
+.matched-owners{
+    font-size: 1vin;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.owner-info{
+    margin: 0 auto;
 }
 
 /*-------------------------- Images ---------------------- */
