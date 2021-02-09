@@ -315,6 +315,18 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul
     color: #fafafa;
 }
 
+.nav-button-red{
+    background-color: rgb(241, 63, 63);
+    border-radius: 15px;
+    font-size: 1vmax;
+    height: auto;
+}
+
+.nav-button-red:hover{
+    background-color: rgb(238, 8, 8);
+    color: #fafafa;
+}
+
 .btn {
     font-size: 1vmax;
     font-weight: 800;
@@ -423,9 +435,19 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul
     position: relative;;
 }
 
-.walker-profile{
-    margin-top: 15%;
-    padding: 3%;
+.owner-info{
+    
+}
+
+.add-walk{
+    margin: 0 auto;
+    background-color: #fafafa;
+    margin-top: 100px;
+    width: 40%;
+    list-style: none;
+    align-items: center;
+    display: flex;
+    text-align: center;
 }
 
 .collapsible i{
@@ -435,6 +457,10 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul
 
 
 /*-------------------------- Walker Profile -------------------*/
+.walker-profile{
+    margin-top: 15%;
+    padding: 3%;
+}
 
 .matched-owners{
     font-size: 1vin;

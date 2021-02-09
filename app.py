@@ -5,7 +5,6 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
-from werkzeug.utils import secure_filename
 if os.path.exists("env.py"):
     import env
 
@@ -81,42 +80,6 @@ def register_owner():
         flash("Registration Successful!")
         return redirect(url_for(
             "owner_profile", owner_username=session["user"]))
-
-    # if request.method == "POST":
-
-    #     if request.files:
-
-    #             image = request.files["image"]
-
-    #             if image.filename == "":
-    #                 print("No filename")
-    #                 return redirect(url_for(
-    #                     "owner_profile", owner_username=mongo.db.owners.find_one(
-    #                         {"owner_username": session[
-    #                             "user"]})["owner_username"]))
-
-    #             if permitted_image(image.filename):
-    #                 filename = secure_filename(image.filename)
-
-    #                 image.save(os.path.join(
-    #                     app.config["image_uploads"], (filename)))
-
-    #                 print("Image saved")
-
-    #                 return redirect(url_for(
-    #                     "owner_profile", owner_username=mongo.db.owners.find_one(
-    #                         {"owner_username": session[
-    #                             "user"]})["owner_username"]))
-
-    #             else:
-    #                 print("That file extension is not allowed")
-    #                 return redirect(url_for(
-    #                     "owner_profile", owner_username=mongo.db.owners.find_one(
-    #                         {"owner_username": session[
-    #                             "user"]})["owner_username"]))
-
-    #     return render_template("owner-profile.html")
-
     return render_template("register-owner.html")
 
 
@@ -230,14 +193,68 @@ def logout():
 @app.route("/owner_profile/<owner_username>", methods=["GET", "POST"])
 def owner_profile(owner_username):
     # Take session user's username from MongoDB
+    owners = mongo.db.owners.find()
+    walks = list(mongo.db.walks.find())
     owner_username = mongo.db.owners.find_one(
         {"owner_username": session["user"]})["owner_username"]
+    result = mongo.db.walks.find()
+    result_list = list(result)
+    print(result_list)
 
     if session["user"]:
         return render_template(
-            "owner-profile.html", owner_username=owner_username)
+            "owner-profile.html", owner_username=owner_username,
+            walks=walks, owners=owners)
 
     return redirect(url_for("sign_in_owner"))
+
+
+@app.route("/add_walk", methods=["GET", "POST"])
+def add_walk():
+    if request.method == "POST":
+        owners = mongo.db.owners.find()
+        walk = mongo.db.walks.find_one()
+        # Add an owner's walk into MongoDb
+        add_walk = {
+            "owner_username": session["user"],
+            "date_of_walk": request.form.get("date_of_walk"),
+            "time_of_walk": request.form.get("time_of_walk"),
+            "length_of_walk": request.form.get("length_of_walk"),
+            "type_of_walk": request.form.get("type_of_walk")
+        }
+        mongo.db.walks.insert_one(add_walk)
+
+        return redirect(url_for(
+            "owner_profile", owner_username=session[
+                "user"], walks=walk, owners=owners))
+    return render_template("add-walk.html")
+
+
+# @app.route("/edit_walk/<walk_id>", methods=["GET", "POST"])
+# def edit_walk(walk_id):
+#     if request.method == "POST":
+
+#         walks = mongo.db.walks.find_one()
+#         # Add an owner's walk into MongoDb
+#         walks = {
+#             "owner_username": session["user"],
+#             "date_of_walk": request.form.get("date_of_walk"),
+#             "time_of_walk": request.form.get("time_of_walk"),
+#             "length_of_walk": request.form.get("length_of_walk"),
+#             "type_of_walk": request.form.get("type_of_walk")
+#         }
+#         mongo.db.tasks.update({"_id": ObjectId(walk_id)}, walks)
+#         flash("Task Successfully Updated")
+
+#     walks = mongo.db.walks.find_one({"_id": ObjectId(walk_id)})
+#     return render_template("edit_walk.html", walk=walks,)
+
+
+# @app.route("/delete_walk/<walk_id>")
+# def walk_task(walk_id):
+    mongo.db.walks.remove({"_id": ObjectId(walk_id)})
+    flash("Walk Successfully Deleted")
+    return redirect(url_for("owner_profile"))
 
 
 @app.route("/walker_profile/<walker_username>", methods=["GET", "POST"])
@@ -254,115 +271,8 @@ def walker_profile(walker_username):
     return redirect(url_for("sign_in_walker"))
 
 
-def permitted_image(filename):
-    if "." not in filename:
-        return False
-
-    ext = filename.rsplit(".", 1)[1]
-
-    if ext.upper() in app.config["permitted_image_types"]:
-        return True
-    else:
-        return False
-
-
-def permitted_file_size(filesize):
-    if int(filesize) <= app.config["max_file_size"]:
-        return True
-    else:
-        return False
-
-
-# @app.route("/upload_image", methods=["GET", "POST"])
-# def upload_image():
-
-#     if request.method == "POST":
-
-#         if request.files:
-
-#             # if "filesize" in request.cookies:
-
-#             #     if not permitted_file_size(request.cookies["filesize"]):
-#             #         print("Filesize exceeded maximum limit")
-#             #         return redirect(url_for(
-#             #             "owner_profile",
-#             #  owner_username=mongo.db.owners.find_one(
-#             #                 {"owner_username": session[
-#             #                     "user"]})["owner_username"]))
-
-#             image = request.files["image"]
-
-#             if image.filename == "":
-#                 print("No filename")
-#                 return redirect(url_for(
-#                     "owner_profile", owner_username=mongo.db.owners.find_one(
-#                         {"owner_username": session[
-#                             "user"]})["owner_username"]))
-
-#             if permitted_image(image.filename):
-#                 filename = secure_filename(image.filename)
-
-#                 image.save(os.path.join(
-#                     app.config["image_uploads"], (filename)))
-
-#                 print("Image saved")
-
-#                 return redirect(url_for(
-#                     "owner_profile", owner_username=mongo.db.owners.find_one(
-#                         {"owner_username": session[
-#                             "user"]})["owner_username"]))
-
-#             else:
-#                 print("That file extension is not allowed")
-#                 return redirect(url_for(
-#                     "owner_profile", owner_username=mongo.db.owners.find_one(
-#                         {"owner_username": session[
-#                             "user"]})["owner_username"]))
-
-#     return render_template("owner-profile.html")
-
-
-# @app.route("/upload_image", methods=["GET", "POST"])
-# def upload_image():
-#     # Upload Image to workspace
-#     if request.method == "POST":
-#         if request.files:
-#             image = request.files["image"]
-#             image_result = permitted_image(image.filename)
-#             if image.filename == "":
-#                 flash("Image must have a filename")
-#                 return redirect(url_for(
-#                     "owner_profile", owner_username=mongo.db.owners.find_one(
-#                         {"owner_username": session[
-#                             "user"]})["owner_username"]))
-#             if image_result is False:
-#                 flash("Image type is not supported")
-#             return redirect(url_for(
-#                 "owner_profile", owner_username=mongo.db.owners.find_one(
-#                     {"owner_username": session["user"]})["owner_username"]))
-
-#         else:
-#             filename = secure_filename(image.filename)
-
-#             image.save(os.path.join(
-#                 app.config["image_uploads"], filename))
-
-#             flash("Image Succesfully Uploaded")
-#             return redirect(url_for(
-#                 "owner_profile", owner_username=mongo.db.owners.find_one(
-#                     {"owner_username": session["user"]})["owner_username"]))
-
-#     return render_template("owner-profile.html")
-
-
 if __name__ == "__main__":
     app.run(
         host=os.environ.get("IP", "0.0.0.0"),
         port=int(os.environ.get("PORT", "5000")),
         debug=True)
-
-
-# return redirect(url_for(
-#                     "owner_profile", owner_username=mongo.db.owners.find_one(
-#                         {"owner_username": session[
-#                             "user"]})["owner_username"]))
