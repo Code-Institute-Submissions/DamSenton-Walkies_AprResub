@@ -9,41 +9,61 @@
                 <h3 class="center-align light-blue-text text-darken-4">{{ walker.walker_username }}'s Profile
                 </h3>
 
+
                 <ul class="collapsible">
                     {% for owner in owners %}
-                    
-
                     <li>
                         <div class="collapsible-header">{{ owner.dog_name }}</div>
                         <div class="collapsible-body">
                             <div class="row matched-owners">
 
-                                <div class="col-12 owner-info">
+                                <div class="col matched-walks">
 
                                     {% if walker.age_group == owner.preferred_age_group and walker.walker_location == owner.owner_location %}
                                     <p>Owner: {{ owner.owner_username.capitalize() }}</p><br>
                                     <p>Location: {{ owner.owner_location.capitalize() }}</p><br>
-                                    <p>Email: <a href="mailto:{{ owner.owner_email }}"> {{ owner.owner_email}}</a></p><br>
-                                    <hr class="block-divider">
+                                    
+                                    
+                                    <ul class="collapsible">
+                                        <li>
+                                            {% for walk in walks %}
+                                            {% if owner.owner_username == walk.owner_username %}
+                                            <div class="collapsible-header">{{ walk.type_of_walk }}</div>
+                                            <div class="collapsible-body">
+                                                <div class="row walks">
+                                                    <div class="col-12 walk-info">
+                                                        <p>Type of Walk: {{ walk.type_of_walk }}</p>
+                                                        <p>Date Of Walk: {{ walk.date_of_walk }}</p>
+                                                        <p>Time Of Walk: {{ walk.time_of_walk }}</p>
+                                                        <p>Length of Walk: {{ walk.length_of_walk }}</p>
+                                                        <p>Email: <a href="mailto:{{ owner.owner_email }}"> {{ owner.owner_email}}</a></p>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            {% endif %}
+                                            {% endfor %}
+                                        </li>
+                                        
+                                        
+                                        
+                                    </ul>
+                                    
                                     {% endif %}
                                 </div>
-
                                 
-                                {% endfor %}
-
                             </div>
                         </div>
-
-
                     </li>
-                </ul>
+                    {% endfor %}
+                                    </ul>
 
 
 
 
+                                </div>
+                            </div>
+                        </div>
             </div>
-        </div>
-    </div>
-
-
-    {% endblock %}
+            {% endblock %}

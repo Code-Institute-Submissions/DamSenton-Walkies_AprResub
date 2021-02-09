@@ -436,7 +436,7 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul
 }
 
 .owner-info{
-    
+    width: 50%;
 }
 
 .add-walk{
@@ -471,9 +471,6 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul
     align-items: center;
 }
 
-.owner-info{
-    margin: 0 auto;
-}
 
 /*-------------------------- Images ---------------------- */
 
