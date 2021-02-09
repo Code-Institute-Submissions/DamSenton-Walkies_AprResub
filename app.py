@@ -263,10 +263,12 @@ def walker_profile(walker_username):
     walker = mongo.db.walkers.find_one(
         {"walker_username": session["user"]})
     owners = mongo.db.owners.find()
+    walks = list(mongo.db.walks.find())
     if session["user"]:
         return render_template(
             "walker-profile.html",
-            walker=walker, owners=owners)
+            walker_username=walker_username,
+            walker=walker, owners=owners, walks=walks)
 
     return redirect(url_for("sign_in_walker"))
 

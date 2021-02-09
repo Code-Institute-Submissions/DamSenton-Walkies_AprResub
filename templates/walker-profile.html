@@ -9,32 +9,41 @@
                 <h3 class="center-align light-blue-text text-darken-4">{{ walker.walker_username }}'s Profile
                 </h3>
 
-                <div class="container">
-                    <div class="row matched-owners">
-                        {% for owner in owners %}
-                        <div class="col-12 owner-info">
+                <ul class="collapsible">
+                    {% for owner in owners %}
+                    
 
-                            {% if walker.age_group == owner.preferred_age_group and walker.walker_location == owner.owner_location %}
-                            {{ owner.dog_image }}<br>
-                            {{ owner.owner_username }}<br>
-                            {{ owner.owner_location }}<br>
-                            <a href="mailto:{{ owner.owner_email }}"> {{ owner.owner_email}}</a><br>
-                            {{ owner.dog_name }}<br>
-                            <hr class="block-divider">
-                            {% endif %}
+                    <li>
+                        <div class="collapsible-header">{{ owner.dog_name }}</div>
+                        <div class="collapsible-body">
+                            <div class="row matched-owners">
+
+                                <div class="col-12 owner-info">
+
+                                    {% if walker.age_group == owner.preferred_age_group and walker.walker_location == owner.owner_location %}
+                                    <p>Owner: {{ owner.owner_username.capitalize() }}</p><br>
+                                    <p>Location: {{ owner.owner_location.capitalize() }}</p><br>
+                                    <p>Email: <a href="mailto:{{ owner.owner_email }}"> {{ owner.owner_email}}</a></p><br>
+                                    <hr class="block-divider">
+                                    {% endif %}
+                                </div>
+
+                                
+                                {% endfor %}
+
+                            </div>
                         </div>
 
-                        {% endfor %}
 
-                    </div>
+                    </li>
+                </ul>
 
-                </div>
+
 
 
             </div>
         </div>
     </div>
-</div>
 
 
-{% endblock %}
+    {% endblock %}
