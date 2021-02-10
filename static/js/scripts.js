@@ -4,5 +4,6 @@ $(document).ready(function() {
     $('.collapsible').collapsible();
     $('.datepicker').datepicker();
     $('.timepicker').timepicker();
+    $('.tabs').tabs();
   });
 ;

@@ -39,8 +39,7 @@
     <div class="row">
         <div class="col">
             <div class="p-5">
-                <img class="round-image" src="{{ url_for('static', filename = 'img/collie.jpeg') }}"
-                    alt="Collie">
+                <img class="round-image" src="{{ url_for('static', filename = 'img/collie.jpeg') }}" alt="Collie">
             </div>
         </div>
         <div class="col-lg-6">
@@ -91,9 +90,174 @@
         </div>
     </div>
 
+    <div class="container-fluid center-align">
+        <h2>Our Owners Favourite Locations</h2>
+        <ul class="tabs tabs-fixed-width tab-demo z-depth-1">
+            <li class="tab"><a href="#haymarket">Haymarket</a></li>
+            <li class="tab"><a href="#leith">Leith</a></li>
+            <li class="tab"><a href="#morningside">Morningside</a></li>
+            <li class="tab"><a href="#new_town">New Town</a></li>
+            <li class="tab"><a href="#stockbridge">Stockbridge</a></li>
+        </ul>
+
+        <div id="haymarket" class="col s12">
+            <div class="walk-location">
+
+                <ul class="collapsible">
+                    <li>
+                    <li>
+                        <div class="collapsible-header">City</div>
+                        <div class="collapsible-body">
+                            <h2>Where to find us</h2>
+                            <div class="map" id="haymarket_city_map"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header">Park</div>
+                        <div class="collapsible-body">
+                            <h2>Where to find us</h2>
+                            <div class="map" id="haymarket_park_map"></div>
+                        </div>
+                    </li>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div id="leith" class="col s12">
+            <div class="walk-location">
+
+                <ul class="collapsible">
+                    <li>
+
+                    <li>
+                        <div class="collapsible-header">Beach</div>
+                        <div class="collapsible-body">
+                            <h2>Where to find us</h2>
+                            <div class="map" id="leith_beach_map"></div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="collapsible-header">City</div>
+                        <div class="collapsible-body">
+                            <h2>Where to find us</h2>
+                            <div class="map" id="leith_city_map"></div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="collapsible-header">Park</div>
+                        <div class="collapsible-body">
+                            <h2>Where to find us</h2>
+                            <div class="map" id="leith_park_map"></div>
+                        </div>
+                    </li>
+
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+        <div id="morningside" class="col s12">
+            <div class="walk-location">
+
+                <ul class="collapsible">
+                    <li>
+
+                    <li>
+                        <div class="collapsible-header">City</div>
+                        <div class="collapsible-body">
+                            <h2>Where to find us</h2>
+                            <div class="map" id="morningside_city_map"></div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="collapsible-header">Park</div>
+                        <div class="collapsible-body">
+                            <h2>Where to find us</h2>
+                            <div class="map" id="morningside_park_map"></div>
+                        </div>
+                    </li>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+        <div id="new_town" class="col s12">
+            <div class="walk-location">
+
+                <ul class="collapsible">
+                    <li>
+                    <li>
+                        <div class="collapsible-header">City</div>
+                        <div class="collapsible-body">
+                            <h2>Where to find us</h2>
+                            <div class="map" id="new_town_city_map"></div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="collapsible-header">Park</div>
+                        <div class="collapsible-body">
+                            <h2>Where to find us</h2>
+                            <div class="map" id="new_town_park_map"></div>
+                        </div>
+                    </li>
+
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+        <div id="stockbridge" class="col s12">
+            <div class="walk-location">
+
+                <ul class="collapsible">
+                    <li>
+
+                    <li>
+                        <div class="collapsible-header">Beach</div>
+                        <div class="collapsible-body">
+                            <h2>Where to find us</h2>
+                            <div class="map" id="stockbridge_beach_map"></div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="collapsible-header">City</div>
+                        <div class="collapsible-body">
+                            <h2>Where to find us</h2>
+                            <div class="map" id="stockbridge_city_map"></div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="collapsible-header">Park</div>
+                        <div class="collapsible-body">
+                            <h2>Where to find us</h2>
+                            <div class="map" id="stockbridge_park_map"></div>
+                        </div>
+                    </li>
+
+                    </li>
+                </ul>
+
+            </div>
+        </div>
 
 
 
+    </div>
 </section>
+
+
+
+
 
 {% endblock %}
