@@ -23,6 +23,7 @@ h1, h2, h3, h4{
     font-family: "Amatic SC", sans-serif;
 }
 
+
 p{
     line-height: 1.5;
     margin: 30px 0;
@@ -42,13 +43,22 @@ section{
 
 /*------------------------- Header -------------*/
 
+header.masthead {
+    margin-bottom: 50px;
+    background: no-repeat center center;
+    background-color: transparent;
+    position: relative;
+    background-size: cover;
+}
+
 .masthead{
-    overflow: auto;
+    word-wrap: break-word;
     contain: content;
 }
 
 .masthead-content{
     background: url("../img/walkies-hero.jpg") no-repeat center center;
+    background-size: auto;
     margin-top: 75px;
     height: 30vmax;
     width: 100%;
@@ -58,13 +68,19 @@ section{
 }
 
 .masthead-subheading{
-    font-size: 3vmax;
+    font-size: 2vmax;
     font-family: "Joesfin Slab", sans-serif ;
     color: #fafafa;
 }
 
 .hero-container{
     justify-content: center;
+}
+
+/* ------------- Content ------------------ */
+
+.content{
+    padding: 0;
 }
 
 /*-------------- Nav Bar ------------------- */
@@ -145,6 +161,23 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul
  .z-depth-1, nav, .card-panel, .card, .toast, .btn, .btn-large, .btn-small, .btn-floating, .dropdown-content, .collapsible, .sidenav{
     -webkit-box-shadow: 0, 0, 0, 0 rgb(0 0 0 0), 0, 0, 0, 0 rgb(0 0 0 0), 0, 0, 0, 0 rgb(0 0 0 0) !important;
     box-shadow: 0, 0, 0, 0 rgb(0 0 0 0), 0, 0, 0, 0 rgb(0 0 0 0), 0 0px 0px 0 rgb(0 0 0 0) !important;
+}
+
+/*---------------------- Flashes ---------------------------*/
+
+.flashes{
+    line-height: 3;
+    background-color: rgb(241, 63, 63);
+    font-size: 2vmax;
+    border-radius: 10px;
+    margin: 0 auto;
+    width: 50%;
+}
+
+.flashed-message{
+    font-size: 2.28rem;
+    line-height: 110%;
+    margin: 1.52rem 0 0 0;
 }
 
 /*---------------------- Main Content ---------------------- */
@@ -355,18 +388,11 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul
     font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
 }
 
-.image-upload-button{
-    font-family: 'Amatic SC', sans-serif;
-    background-color: #69EA5E;
+.cancel-button{
+    background-color: rgb(236, 82, 82);
     border-radius: 15px;
-    font-size: 1.5vmax;
+    font-size: 1vmax;
     height: auto;
-    padding: 5px
-}
-
-.image-upload-button:hover{
-    background-color: #105725;
-    color: #fafafa;
 }
 
 /*---------------- register forms ------------------------ */
@@ -454,7 +480,7 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul
 }
 
 .owner-info{
-    width: 50%;
+    width: auto;
 }
 
 .add-walk{
@@ -488,10 +514,6 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul
     justify-content: center;
     align-items: center;
 }
-
-
-/*-------------------------- Images ---------------------- */
-
 
 
 /*----------------------- Block Divider (courtesy of https://codepen.io/stg/pen/ZYYQMJ) ------------------------- */
@@ -530,59 +552,6 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul
     background-image: -o-linear-gradient(180deg, #000, transparent);
     background-image: linear-gradient(90deg, #000, transparent);
 }
-
-
-/*------------------------ Upload imagae ----------------------- */
-
-.image-upload-section{
-    top: 50%;
-    bottom: 50%;
-    margin-top: 10%;
-    margin-bottom: 250px;
-    align-items: center;
-    width: 80%;
-    height: auto;
-    padding: 5%;
-}
-
-.image-upload{
-    width: 80%;
-    height: auto;
-    margin: 0 auto;
-    align-items: center;
-}
-
-.image-upload h2{
-    margin-bottom: 4rem;
-}
-
-.image-input{
-    margin-bottom: 2rem;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*------------------ Footer----------------- */
 

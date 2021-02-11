@@ -2,6 +2,15 @@
 {% block content %}
 
 <section class="register-walker-form">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <div class="row flashes">
+        <h4 class="center-align flashed-message"> {{ message }}</h4>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
     <h3 class="center-align">Register Your Dog</h3>
     <div class="row center-align">
 
@@ -70,6 +79,7 @@
             <button class="submit-button btn waves-effect waves-light" type="submit" name="action">Submit
                 <i class="material-icons right"></i>
             </button>
+            <a href="{{ url_for('index') }}" class="cancel-button text-shadow btn">Cancel</a>
         </form>
     </div>
 

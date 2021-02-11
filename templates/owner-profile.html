@@ -9,29 +9,30 @@
                 <h3 class="center-align light-blue-text text-darken-4">{{ owner_username }}'s Profile
                 </h3>
 
-                
-                    <div class="row walks">
-                        {% for walk in walks %}
-                        <div class="col-12 owner-info">
 
-                            {% if walks.owner_username == owners.owner_username %}
-                                <p>Type of Walk: {{ walk.type_of_walk }}</p>
-                                <p>Date Of Walk: {{ walk.date_of_walk }}</p>
-                                <p>Time Of Walk: {{ walk.time_of_walk }}</p>
-                                <p>Length of Walk: {{ walk.length_of_walk }}</p>
-                                 <br>
-                            {% endif %}
+                <div class="row walks center-align">
+                    {% for walk in walks %}
+                    <div class="col-12 owner-info">
 
-                        </div>
- <a href="{{ url_for('add_walk') }}" class="waves-effect waves-light btn nav-button-blue">Add a Walk</a>
-            <a href="#" class="waves-effect waves-light btn nav-button-red">Edit/Delete a Walk</a>
-                        {% endfor %}
+                        {% if walks.owner_username == owners.owner_username %}
+                        <p>Type of Walk: {{ walk.type_of_walk }}</p>
+                        <p>Date Of Walk: {{ walk.date_of_walk }}</p>
+                        <p>Time Of Walk: {{ walk.time_of_walk }}</p>
+                        <p>Length of Walk: {{ walk.length_of_walk }}</p>
+                        <br>
+                        {% endif %}
 
                     </div>
-                
-           
-            
 
+                    <a href="{{ url_for('edit_walk', walk_id=walk._id) }}"
+                        class="waves-effect waves-light btn nav-button-red">Edit Walk</a>
+                    <a href="{{ url_for('delete_walk', walk_id=walk._id) }}"
+                        class="waves-effect waves-light btn nav-button-red">Delete Walk</a>
+                    {% endfor %}
+
+                </div>
+                <a href="{{ url_for('add_walk') }}" class="waves-effect waves-light btn nav-button-blue">Add a
+                    Walk</a>
             </div>
         </div>
     </div>

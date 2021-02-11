@@ -2,13 +2,23 @@
 {% block content %}
 
 <section class="register-walker-form">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <div class="row flashes">
+        <h4 class="center-align flashed-message"> {{ message }}</h4>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
     <h3 class="center-align">Register To Walk A Dog</h3>
 
     <div class="row center-align">
         <form class="col s12" method="POST" action="{{ url_for('register_walker') }}">
             <div class="row">
                 <div class="input-field col s12">
-                    <input placeholder="Placeholder" name="walker_username" id="walker_username" type="text" class="validate" required>
+                    <input placeholder="Placeholder" name="walker_username" id="walker_username" type="text"
+                        class="validate" required>
                     <label for="walker_username">Username</label>
                 </div>
             </div>
@@ -54,6 +64,7 @@
             <button class="submit-button btn waves-effect waves-light" type="submit" name="action">Submit
                 <i class="material-icons right"></i>
             </button>
+            <a href="{{ url_for('index') }}" class="cancel-button text-shadow btn">Cancel</a>
         </form>
     </div>
     <div class="row">

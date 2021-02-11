@@ -50,10 +50,13 @@
                         <label for="type_of_walk">Type Of Walk</label>
                     </div>
                 </div>
-
                 <button class="submit-button btn waves-effect waves-light" type="submit" name="action">Submit
                     <i class="material-icons right"></i>
                 </button>
+                <a href="{{ url_for(
+                    'owner_profile', owner_username=session['user']) }}"
+                    class="cancel-button text-shadow btn">Cancel</a>
+
             </form>
 
         </div>

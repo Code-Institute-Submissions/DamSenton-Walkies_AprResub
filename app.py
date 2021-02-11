@@ -128,9 +128,7 @@ def sign_in_owner():
                 session["user"] = request.form.get(
                     "owner_username").lower()
                 session["type"] = "owner"
-                # Here
 
-                flash("Welcome, {}".format(request.form.get("owner_username")))
                 return redirect(url_for(
                     "owner_profile", owner_username=session["user"]))
 
@@ -164,8 +162,6 @@ def sign_in_walker():
                     "walker_username").lower()
                 session["type"] = "walker"
 
-                flash("Welcome, {}".format(
-                    request.form.get("walker_username")))
                 return redirect(url_for(
                     "walker_profile", walker_username=session["user"]))
 
@@ -185,7 +181,6 @@ def sign_in_walker():
 @app.route("/logout")
 def logout():
     # remove user from session cookies
-    flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("sign_in"))
 
@@ -230,31 +225,28 @@ def add_walk():
     return render_template("add-walk.html")
 
 
-# @app.route("/edit_walk/<walk_id>", methods=["GET", "POST"])
-# def edit_walk(walk_id):
-#     if request.method == "POST":
+@app.route("/edit_walk/<walk_id>", methods=["GET", "POST"])
+def edit_walk(walk_id):
+    if request.method == "POST":
+        submit = {
+            "task_name": request.form.get("task_name"),
+            "task_description": request.form.get("task_description"),
+            "due_date": request.form.get("due_date"),
+            "created_by": session["user"]
+        }
+        mongo.db.tasks.update({"_id": ObjectId(walk_id)}, submit)
+        flash("Task Successfully Updated")
 
-#         walks = mongo.db.walks.find_one()
-#         # Add an owner's walk into MongoDb
-#         walks = {
-#             "owner_username": session["user"],
-#             "date_of_walk": request.form.get("date_of_walk"),
-#             "time_of_walk": request.form.get("time_of_walk"),
-#             "length_of_walk": request.form.get("length_of_walk"),
-#             "type_of_walk": request.form.get("type_of_walk")
-#         }
-#         mongo.db.tasks.update({"_id": ObjectId(walk_id)}, walks)
-#         flash("Task Successfully Updated")
-
-#     walks = mongo.db.walks.find_one({"_id": ObjectId(walk_id)})
-#     return render_template("edit_walk.html", walk=walks,)
+    walk = mongo.db.walks.find_one({"_id": ObjectId(walk_id)})
+    return render_template("edit_task.html", walk=walk)
 
 
-# @app.route("/delete_walk/<walk_id>")
-# def walk_task(walk_id):
+
+@app.route("/delete_walk/<walk_id>")
+def delete_walk(walk_id):
     mongo.db.walks.remove({"_id": ObjectId(walk_id)})
     flash("Walk Successfully Deleted")
-    return redirect(url_for("owner_profile"))
+    return redirect(url_for("owner_profile", owner_username=session["user"]))
 
 
 @app.route("/walker_profile/<walker_username>", methods=["GET", "POST"])

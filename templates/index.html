@@ -1,16 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
 <header class="masthead text-center text-white">
-    <div class="masthead-content">
-        <div class="container center-align">
-            <h4 class="masthead-subheading mb-0">Want to get out more and help in your community?</h4>
-            <p><strong>Register to help today!</strong></p>
-            <a href="{{ url_for('register_owner') }}" class="waves-effect waves-light btn nav-button-green">Register a
-                Dog</a>
-            <a href="{{ url_for('register_walker') }}" class="waves-effect waves-light btn nav-button-blue">Register to
-                Walk a Dog</a>
+    <div class="container-fluid center-align">
+    <div class="row">
+        <div class="col-12">
+            <div class="masthead-content">
+                    <h4 class="masthead-subheading mb-0">Want to get out more and help in your community?</h4>
+                    <p><strong>Register to help today!</strong></p>
+                    <a href="{{ url_for('register_owner') }}"
+                        class="waves-effect waves-light btn nav-button-green">Register a
+                        Dog</a>
+                    <a href="{{ url_for('register_walker') }}"
+                        class="waves-effect waves-light btn nav-button-blue">Register to
+                        Walk a Dog</a>
+                </div>
+            </div>
         </div>
     </div>
+
 </header>
 
 
@@ -108,14 +115,14 @@
                     <li>
                         <div class="collapsible-header">City</div>
                         <div class="collapsible-body">
-                            <h2>Where to find us</h2>
+                            <h2>Scottish National Gallery of Art</h2>
                             <div class="map" id="haymarket_city_map"></div>
                         </div>
                     </li>
                     <li>
                         <div class="collapsible-header">Park</div>
                         <div class="collapsible-body">
-                            <h2>Where to find us</h2>
+                            <h2>The Meadows</h2>
                             <div class="map" id="haymarket_park_map"></div>
                         </div>
                     </li>
@@ -134,7 +141,7 @@
                     <li>
                         <div class="collapsible-header">Beach</div>
                         <div class="collapsible-body">
-                            <h2>Where to find us</h2>
+                            <h2>Silverknowes</h2>
                             <div class="map" id="leith_beach_map"></div>
                         </div>
                     </li>
@@ -142,7 +149,7 @@
                     <li>
                         <div class="collapsible-header">City</div>
                         <div class="collapsible-body">
-                            <h2>Where to find us</h2>
+                            <h2>Ferry Road</h2>
                             <div class="map" id="leith_city_map"></div>
                         </div>
                     </li>
@@ -150,7 +157,7 @@
                     <li>
                         <div class="collapsible-header">Park</div>
                         <div class="collapsible-body">
-                            <h2>Where to find us</h2>
+                            <h2>Victoria Park</h2>
                             <div class="map" id="leith_park_map"></div>
                         </div>
                     </li>
@@ -170,7 +177,7 @@
                     <li>
                         <div class="collapsible-header">City</div>
                         <div class="collapsible-body">
-                            <h2>Where to find us</h2>
+                            <h2>Morningside Roads</h2>
                             <div class="map" id="morningside_city_map"></div>
                         </div>
                     </li>
@@ -178,7 +185,7 @@
                     <li>
                         <div class="collapsible-header">Park</div>
                         <div class="collapsible-body">
-                            <h2>Where to find us</h2>
+                            <h2>Harrison Park</h2>
                             <div class="map" id="morningside_park_map"></div>
                         </div>
                     </li>
@@ -196,7 +203,7 @@
                     <li>
                         <div class="collapsible-header">City</div>
                         <div class="collapsible-body">
-                            <h2>Where to find us</h2>
+                            <h2>York Place</h2>
                             <div class="map" id="new_town_city_map"></div>
                         </div>
                     </li>
@@ -204,7 +211,7 @@
                     <li>
                         <div class="collapsible-header">Park</div>
                         <div class="collapsible-body">
-                            <h2>Where to find us</h2>
+                            <h2>Queen Street Gardens</h2>
                             <div class="map" id="new_town_park_map"></div>
                         </div>
                     </li>
@@ -224,7 +231,7 @@
                     <li>
                         <div class="collapsible-header">Beach</div>
                         <div class="collapsible-body">
-                            <h2>Where to find us</h2>
+                            <h2>Newhaven Harbour</h2>
                             <div class="map" id="stockbridge_beach_map"></div>
                         </div>
                     </li>
@@ -232,7 +239,7 @@
                     <li>
                         <div class="collapsible-header">City</div>
                         <div class="collapsible-body">
-                            <h2>Where to find us</h2>
+                            <h2>Raeburn Place</h2>
                             <div class="map" id="stockbridge_city_map"></div>
                         </div>
                     </li>
@@ -240,7 +247,7 @@
                     <li>
                         <div class="collapsible-header">Park</div>
                         <div class="collapsible-body">
-                            <h2>Where to find us</h2>
+                            <h2>Inverleith Park</h2>
                             <div class="map" id="stockbridge_park_map"></div>
                         </div>
                     </li>

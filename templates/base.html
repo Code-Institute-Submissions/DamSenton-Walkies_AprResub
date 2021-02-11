@@ -16,51 +16,58 @@
 
 
 <body class="h-100">
-    <a href="#" id="back-to-top" class="back-to-top" style="display: inline;"><i class="fas fa-angle-up"></i></a>
-    <!-- Navigation -->
-    <nav id="navbar">
+    <header>
+        <a href="#" id="back-to-top" class="back-to-top" style="display: inline;"><i class="fas fa-angle-up"></i></a>
+        <!-- Navigation -->
+        <nav id="navbar">
 
-        <a href="{{ url_for('index') }}" class="navbar-brand">Walkies</a>
-        <a href="#" data-target="mobile-demo" id="nav-toggler" class="sidenav-trigger right"><i
-                class="fas fa-bars"></i></a>
-        <ul class="right hide-on-med-and-down">
+            <a href="{{ url_for('index') }}" class="navbar-brand">Walkies</a>
+            <a href="#" data-target="mobile-demo" id="nav-toggler" class="sidenav-trigger right"><i
+                    class="fas fa-bars"></i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="{{ url_for('index') }}" class="nav-link">Home</a></li>
+                {% if session.user %}
+
+                {% if session.type == "walker" %}
+                <li><a href="{{ url_for('walker_profile', walker_username=session['user']) }}"
+                        class="nav-link">Profile</a>
+                </li>
+                {% elif session.type == "owner" %}
+                <li><a href="{{ url_for('owner_profile', owner_username=session['user']) }}"
+                        class="nav-link">Profile</a>
+                </li>
+                {% endif %}
+                <li><a href="{{ url_for('logout') }}" class="waves-effect waves-light btn sign-out-button">Log Out</a>
+                </li>
+                {% else %}
+                <li><a href="{{ url_for('sign_in') }}" class="waves-effect waves-light btn sign-in-button">Sign In</a>
+                </li>
+                {% endif %}
+            </ul>
+
+        </nav>
+
+        <ul class="sidenav" id="mobile-demo">
             <li><a href="{{ url_for('index') }}" class="nav-link">Home</a></li>
             {% if session.user %}
 
             {% if session.type == "walker" %}
-            <li><a href="{{ url_for('walker_profile', walker_username=session['user']) }}" class="nav-link">Profile</a>
+            <li><a href="{{ url_for('walker_profile', walker_username=session['user']) }} " class="nav-link">Profile</a>
             </li>
             {% elif session.type == "owner" %}
             <li><a href="{{ url_for('owner_profile', owner_username=session['user']) }}" class="nav-link">Profile</a>
             </li>
             {% endif %}
-            <li><a href="{{ url_for('logout') }}" class="waves-effect waves-light btn sign-out-button">Log Out</a></li>
+            <li><a href="{{ url_for('logout') }}" class="nav-link">Log Out</a></li>
             {% else %}
-            <li><a href="{{ url_for('sign_in') }}" class="waves-effect waves-light btn sign-in-button">Sign In</a></li>
+            <li><a href="{{ url_for('sign_in') }}" class="nav-link">Sign In</a></li>
             {% endif %}
         </ul>
-
-    </nav>
-
-    <ul class="sidenav" id="mobile-demo">
-        <li><a href="{{ url_for('index') }}" class="nav-link">Home</a></li>
-        {% if session.user %}
-
-        {% if session.type == "walker" %}
-        <li><a href="{{ url_for('walker_profile', walker_username=session['user']) }} " class="nav-link">Profile</a>
-        </li>
-        {% elif session.type == "owner" %}
-        <li><a href="{{ url_for('owner_profile', owner_username=session['user']) }}" class="nav-link">Profile</a>
-        </li>
-        {% endif %}
-        <li><a href="{{ url_for('logout') }}" class="nav-link">Log Out</a></li>
-        {% else %}
-        <li><a href="{{ url_for('sign_in') }}" class="nav-link">Sign In</a></li>
-        {% endif %}
-    </ul>
-
+    </header>
     <!----- Header Element ----->
-
+    
+        
+    
 
 
 
