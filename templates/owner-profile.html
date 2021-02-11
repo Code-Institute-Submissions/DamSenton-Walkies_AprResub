@@ -25,13 +25,13 @@
                     </div>
 
                     <a href="{{ url_for('edit_walk', walk_id=walk._id) }}"
-                        class="waves-effect waves-light btn nav-button-red">Edit Walk</a>
+                        class="waves-effect waves-light btn nav-button-blue">Edit Walk</a>
                     <a href="{{ url_for('delete_walk', walk_id=walk._id) }}"
                         class="waves-effect waves-light btn nav-button-red">Delete Walk</a>
                     {% endfor %}
 
                 </div>
-                <a href="{{ url_for('add_walk') }}" class="waves-effect waves-light btn nav-button-blue">Add a
+                <a href="{{ url_for('add_walk') }}" class="waves-effect waves-light btn submit-button">Add a
                     Walk</a>
             </div>
         </div>

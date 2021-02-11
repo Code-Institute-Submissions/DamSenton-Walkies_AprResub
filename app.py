@@ -228,18 +228,23 @@ def add_walk():
 @app.route("/edit_walk/<walk_id>", methods=["GET", "POST"])
 def edit_walk(walk_id):
     if request.method == "POST":
+        walk = mongo.db.walks.find_one()
+        # Add an owner's walk into MongoDb
         submit = {
-            "task_name": request.form.get("task_name"),
-            "task_description": request.form.get("task_description"),
-            "due_date": request.form.get("due_date"),
-            "created_by": session["user"]
+            "owner_username": session["user"],
+            "date_of_walk": request.form.get("date_of_walk"),
+            "time_of_walk": request.form.get("time_of_walk"),
+            "length_of_walk": request.form.get("length_of_walk"),
+            "type_of_walk": request.form.get("type_of_walk")
         }
-        mongo.db.tasks.update({"_id": ObjectId(walk_id)}, submit)
-        flash("Task Successfully Updated")
+        mongo.db.walks.update({"_id": ObjectId(walk_id)}, submit)
+
+        return redirect(url_for(
+            "owner_profile", owner_username=session[
+                "user"], walks=walk))
 
     walk = mongo.db.walks.find_one({"_id": ObjectId(walk_id)})
-    return render_template("edit_task.html", walk=walk)
-
+    return render_template("edit-walk.html", walk=walk)
 
 
 @app.route("/delete_walk/<walk_id>")

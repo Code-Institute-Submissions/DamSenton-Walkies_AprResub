@@ -1,42 +1,66 @@
 {% extends "base.html" %}
+
 {% block content %}
 
 
-<div class="owner-profile">
+
+<div class="add-walk">
     <div class="row">
-        <div class="col s12 m8 offset-m2">
-            <div class="card-panel center-align">
-                <h3 class="center-align light-blue-text text-darken-4">{{ owner_username }}'s Profile
-                </h3>
+        <h3>Edit A Walk</h3>
+        <div class="col-s12 m8 offset-m2">
 
-
-                <div class="row walks center-align">
-                    {% for walk in walks %}
-                    <div class="col-12 owner-info">
-
-                        {% if walks.owner_username == owners.owner_username %}
-                        <p>Type of Walk: {{ walk.type_of_walk }}</p>
-                        <p>Date Of Walk: {{ walk.date_of_walk }}</p>
-                        <p>Time Of Walk: {{ walk.time_of_walk }}</p>
-                        <p>Length of Walk: {{ walk.length_of_walk }}</p>
-                        <br>
-                        {% endif %}
-
+            <form class="col s12" method="POST" action="{{ url_for('edit_walk', walk_id=walk._id) }}">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input type="text" class="datepicker" name="date_of_walk" id="date_of_walk" placeholder="{{ walk.date_of_walk }}" required>
+                        <label for="date_of_walk">Date Of Walk</label>
                     </div>
-
-                    <a href="{{ url_for('edit_walk', walk_id=walk._id) }}"
-                        class="waves-effect waves-light btn nav-button-red">Edit Walk</a>
-                    <a href="{{ url_for('delete_walk', walk_id=walk._id) }}"
-                        class="waves-effect waves-light btn nav-button-red">Delete Walk</a>
-                    {% endfor %}
-
                 </div>
-                <a href="{{ url_for('add_walk') }}" class="waves-effect waves-light btn nav-button-blue">Add a
-                    Walk</a>
-            </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input type="text" class="timepicker" name="time_of_walk" placeholder="{{ walk.time_of_walk }}" id="time_of_walk" required>
+                        <label for="time_of_walk">Time Of Walk</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12" id="length_of_walk">
+                        <select name="length_of_walk" required>
+                            <option value="" disabled>{{ walk.length_of_walk }}</option>
+                            <option value="5-10">5-10</option>
+                            <option value="10-20">10-20</option>
+                            <option value="20-30">20-30</option>
+                            <option value="60+">60+</option>
+                        </select>
+                        <label for="length_of_walk">Length Of Walk</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12" id="type_of_walk">
+                        <select name="type_of_walk" required>
+                            <option value="" disabled>{{ walk.type_of_walk }}</option>
+                            <option value="Beach">Beach</option>
+                            <option value="City">City</option>
+                            <option value="Country">Country</option>
+                            <option value="Dog Park">Dog Park</option>
+                        </select>
+                        <label for="type_of_walk">Type Of Walk</label>
+                    </div>
+                </div>
+                <button class="submit-button btn waves-effect waves-light" type="submit" name="action">Edit Walk
+                    <i class="material-icons right"></i>
+                </button>
+                <a href="{{ url_for(
+                    'owner_profile', owner_username=session['user']) }}"
+                    class="cancel-button text-shadow btn">Cancel</a>
+            </form>
+
         </div>
     </div>
+
 </div>
 
 
-{% endblock content %}
+{% endblock %}
