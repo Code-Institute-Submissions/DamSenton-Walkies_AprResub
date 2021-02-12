@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $('select').formSelect();
-    $('.sidenav').sidenav();
+    $('.sidenav').sidenav({edge:'right'});
     $('.collapsible').collapsible();
     $('.datepicker').datepicker();
     $('.timepicker').timepicker();

@@ -450,7 +450,7 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul
     display: inline;
 }
 
-.register-owner-form{
+.register-form{
     margin-top: 10%;
     padding: 2rem;
     color: #000000;
@@ -460,17 +460,15 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul
     background-color: #fafafa;
 }
 
-
-.register-walker-form{
-    margin-top: 10%;
-    padding: 2rem;
-    color: #000000;
-    justify-content: space-around;
-    align-items: center;
-    margin-bottom: 50px;
-    background-color: #fafafa;
+@media screen and (max-width:800px){
+    .register-form{
+        margin-top: 20%;
+}
 }
 
+.register-form h3{
+    font-size: 4vmax;
+}
 
 /*-------------------------- Sign in page ---------------*/
 
