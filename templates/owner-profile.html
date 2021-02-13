@@ -12,15 +12,16 @@
 
                 <div class="row walks center-align">
                     {% for walk in walks %}
+                    
                     <div class="col-12 owner-info">
 
-                        {% if walks.owner_username == owners.owner_username %}
+                        {% if session.user == walk.owner_username %}
                         <p>Type of Walk: {{ walk.type_of_walk }}</p>
                         <p>Date Of Walk: {{ walk.date_of_walk }}</p>
                         <p>Time Of Walk: {{ walk.time_of_walk }}</p>
                         <p>Length of Walk: {{ walk.length_of_walk }}</p>
                         <br>
-                        {% endif %}
+                        
 
                     </div>
 
@@ -29,7 +30,9 @@
                     <a href="{{ url_for('delete_walk', walk_id=walk._id) }}"
                         class="waves-effect waves-light btn nav-button-red">Delete Walk</a>
                         <hr>
+                        {% endif %}
                     {% endfor %}
+                    
 
                 </div>
                 <a href="{{ url_for('add_walk') }}" class="waves-effect waves-light btn submit-button">Add a

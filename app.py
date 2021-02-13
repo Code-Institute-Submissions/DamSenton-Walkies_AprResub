@@ -59,10 +59,16 @@ def register_owner():
         # Checks to see if this username is already taken
         existing_owner = mongo.db.owners.find_one(
             {"owner_username": request.form.get("owner_username").lower()})
+        existing_owner_email = mongo.db.owners.find_one(
+            {"owner_email": request.form.get("owner_email").lower()})
 
         if existing_owner:
             flash("Username already exists")
             return redirect(url_for("register_owner"))
+
+        if existing_owner_email:
+            flash("Email is already in use")
+            return redirect(url_for("register_walker"))
 
         register_owner = {
             "owner_username": request.form.get("owner_username").lower(),
@@ -77,7 +83,6 @@ def register_owner():
 
         # creates a new session cookie for the user
         session["user"] = request.form.get("owner_username").lower()
-        flash("Registration Successful!")
         return redirect(url_for(
             "owner_profile", owner_username=session["user"]))
     return render_template("register-owner.html")
@@ -89,9 +94,15 @@ def register_walker():
         # Checks to see if this username is already taken
         existing_walker = mongo.db.walkers.find_one(
             {"walker_username": request.form.get("walker_username").lower()})
+        existing_walker_email = mongo.db.walkers.find_one(
+            {"walker_email": request.form.get("walker_email").lower()})
 
         if existing_walker:
             flash("Username already exists")
+            return redirect(url_for("register_walker"))
+
+        if existing_walker_email:
+            flash("Email is already in use")
             return redirect(url_for("register_walker"))
 
         register_walker = {
@@ -106,7 +117,6 @@ def register_walker():
 
         # Create a new session cookie for the user
         session["user"] = request.form.get("walker_username").lower()
-        flash("Registration Successful!")
         return redirect(url_for("walker_profile",
                                 walker_username=session["user"]))
 
@@ -188,18 +198,16 @@ def logout():
 @app.route("/owner_profile/<owner_username>", methods=["GET", "POST"])
 def owner_profile(owner_username):
     # Take session user's username from MongoDB
+    walkers = mongo.db.walkers.find()
     owners = mongo.db.owners.find()
     walks = list(mongo.db.walks.find())
     owner_username = mongo.db.owners.find_one(
         {"owner_username": session["user"]})["owner_username"]
-    result = mongo.db.walks.find()
-    result_list = list(result)
-    print(result_list)
 
     if session["user"]:
         return render_template(
             "owner-profile.html", owner_username=owner_username,
-            walks=walks, owners=owners)
+            walks=walks, owners=owners, walkers=walkers)
 
     return redirect(url_for("sign_in_owner"))
 
@@ -221,7 +229,7 @@ def add_walk():
 
         return redirect(url_for(
             "owner_profile", owner_username=session[
-                "user"], walks=walk, owners=owners))
+                "user"], walks=walk, owners=owners, add_walk=add_walk))
     return render_template("add-walk.html")
 
 
@@ -250,13 +258,13 @@ def edit_walk(walk_id):
 @app.route("/delete_walk/<walk_id>")
 def delete_walk(walk_id):
     mongo.db.walks.remove({"_id": ObjectId(walk_id)})
-    flash("Walk Successfully Deleted")
     return redirect(url_for("owner_profile", owner_username=session["user"]))
 
 
 @app.route("/walker_profile/<walker_username>", methods=["GET", "POST"])
 def walker_profile(walker_username):
     # Take session user's username from MongoDB
+    walkers = mongo.db.walkers.find()
     walker = mongo.db.walkers.find_one(
         {"walker_username": session["user"]})
     owners = mongo.db.owners.find()
@@ -265,7 +273,7 @@ def walker_profile(walker_username):
         return render_template(
             "walker-profile.html",
             walker_username=walker_username,
-            walker=walker, owners=owners, walks=walks)
+            walker=walker, owners=owners, walks=walks, walkers=walkers)
 
     return redirect(url_for("sign_in_walker"))
 

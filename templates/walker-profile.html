@@ -11,7 +11,7 @@
 
 
                 <ul class="collapsible">
-                    {% for owner in owners %}
+                    {% for owner in owners, walk in walks %}
                     <li>
                         <div class="collapsible-header">{{ owner.dog_name }}</div>
                         <div class="collapsible-body">
@@ -19,7 +19,7 @@
 
                                 <div class="col matched-walks">
 
-                                    {% if walker.age_group == owner.preferred_age_group and walker.walker_location == owner.owner_location %}
+                                    {% if walks.owner_username == owner.owner_username and owners.prefferred_age_group == walker.age_group %}
                                     <p>Owner: {{ owner.owner_username.capitalize() }}</p><br>
                                     <p>Location: {{ owner.owner_location.capitalize() }}</p><br>
                                     
