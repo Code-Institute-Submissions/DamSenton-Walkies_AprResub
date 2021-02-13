@@ -264,16 +264,17 @@ def delete_walk(walk_id):
 @app.route("/walker_profile/<walker_username>", methods=["GET", "POST"])
 def walker_profile(walker_username):
     # Take session user's username from MongoDB
-    walkers = mongo.db.walkers.find()
+    walkers = list(mongo.db.walkers.find())
     walker = mongo.db.walkers.find_one(
         {"walker_username": session["user"]})
-    owners = mongo.db.owners.find()
+    owners = list(mongo.db.owners.find())
     walks = list(mongo.db.walks.find())
     if session["user"]:
         return render_template(
             "walker-profile.html",
             walker_username=walker_username,
-            walker=walker, owners=owners, walks=walks, walkers=walkers)
+            walker=walker, owners=owners, walks=walks,
+            walkers=walkers)
 
     return redirect(url_for("sign_in_walker"))
 

@@ -8,62 +8,59 @@
             <div class="card-panel ">
                 <h3 class="center-align light-blue-text text-darken-4">{{ walker.walker_username }}'s Profile
                 </h3>
+                
+{% for walk in walks %}
+   {% for owner in owners if owners.owner_username == walks.owner_username %}
+        {% if session.user.age_group == owners.prefered_age_group and session.user.walker_location == owners.owner_location %}
 
-
+                
+                
                 <ul class="collapsible">
-                    {% for owner in owners, walk in walks %}
                     <li>
-                        <div class="collapsible-header">{{ owner.dog_name }}</div>
+                        <div class="collapsible-header">{{ owners.dog_name }}</div>
                         <div class="collapsible-body">
                             <div class="row matched-owners">
-
                                 <div class="col matched-walks">
-
-                                    {% if walks.owner_username == owner.owner_username and owners.prefferred_age_group == walker.age_group %}
-                                    <p>Owner: {{ owner.owner_username.capitalize() }}</p><br>
-                                    <p>Location: {{ owner.owner_location.capitalize() }}</p><br>
-                                    
-                                    
+                                    <p>Owner: {{ owners.owner_username }}</p><br>
+                                    <p>Location: {{ owners.owner_location }}</p><br>
                                     <ul class="collapsible">
                                         <li>
-                                            {% for walk in walks %}
-                                            {% if owner.owner_username == walk.owner_username %}
-                                            <div class="collapsible-header">{{ walk.type_of_walk }}</div>
+                                            
+                                            <div class="collapsible-header">{{ walks.type_of_walk }}</div>
                                             <div class="collapsible-body">
                                                 <div class="row walks">
                                                     <div class="col-12 walk-info">
-                                                        <p>Type of Walk: {{ walk.type_of_walk }}</p>
-                                                        <p>Date Of Walk: {{ walk.date_of_walk }}</p>
-                                                        <p>Time Of Walk: {{ walk.time_of_walk }}</p>
-                                                        <p>Length of Walk: {{ walk.length_of_walk }}</p>
-                                                        <p>Email: <a href="mailto:{{ owner.owner_email }}"> {{ owner.owner_email}}</a></p>
-                                                        
+                                                        <p>Type of Walk: {{ walks.type_of_walk }}</p>
+                                                        <p>Date Of Walk: {{ walks.date_of_walk }}</p>
+                                                        <p>Time Of Walk: {{ walks.time_of_walk }}</p>
+                                                        <p>Length of Walk: {{ walks.length_of_walk }}</p>
+                                                        <p>Email: <a href="mailto:{{ owners.owner_email }}">
+                                                                {{ owners.owner_email}}</a></p>
+
                                                     </div>
                                                 </div>
                                             </div>
-                                            
-                                            {% endif %}
-                                            {% endfor %}
                                         </li>
                                         
                                         
-                                        
+                                    
                                     </ul>
                                     
-                                    {% endif %}
                                 </div>
-                                
+
                             </div>
                         </div>
                     </li>
-                    {% endfor %}
-                                    </ul>
+
+                </ul>
+               {% endif %}
+                {% endfor %}
+                {% endfor %}
 
 
 
-
-                                </div>
-                            </div>
-                        </div>
             </div>
-            {% endblock %}
+        </div>
+    </div>
+</div>
+{% endblock %}
