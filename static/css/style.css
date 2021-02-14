@@ -135,6 +135,12 @@ header.masthead {
     margin-bottom: 10%;
 }
 
+@media screen and (max-width:1000px){
+    .content{
+        margin-bottom: 25%;
+    }
+}
+
 /*-------------- Nav Bar ------------------- */
 
 
