@@ -6,13 +6,16 @@
         <div class="col-12">
             <div class="masthead-content">
                     <h4 class="masthead-subheading mb-0">Want to get out more and help in your community?</h4>
+                    
                     <p><strong>Register to help today!</strong></p>
+                    {% if not session.user %}
                     <a href="{{ url_for('register_owner') }}"
                         class="waves-effect waves-light btn nav-button-green">Register a
                         Dog</a>
                     <a href="{{ url_for('register_walker') }}"
                         class="waves-effect waves-light btn nav-button-blue">Register to
                         Walk a Dog</a>
+                        {% endif %}
                 </div>
             </div>
         </div>
