@@ -582,14 +582,19 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul
 /*------------------------- Profile Pages ----------------- */
 
 .owner-profile{
-    margin-top: 10%;
-    padding: 5%;
-    position: relative;;
+    margin-top: 5%;
+    padding: 3%;
 }
 
 @media screen and (min-width: 1000px){
     .owner-profile{
         margin-bottom: 20%;
+    }
+}
+
+@media screen and (max-width:1100px){
+    .owner-profile{
+        margin-top: 15%;
     }
 }
 
@@ -662,6 +667,12 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul
 @media screen and (min-width: 1000px){
     .walker-profile{
         margin-bottom: 20%;
+    }
+}
+
+@media screen and (max-width:1100px){
+    .walker-profile{
+        margin-top: 15%;
     }
 }
 
@@ -764,6 +775,7 @@ footer ul {
 
 @media screen and (max-width: 800px) {
   .social-media i {
+      position: relative;
     font-size: 2vmax ;
     letter-spacing: 0px;
     padding: 20px;

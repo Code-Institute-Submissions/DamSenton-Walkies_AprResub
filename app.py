@@ -75,9 +75,7 @@ def register_owner():
             "owner_password": generate_password_hash(
                 request.form.get("owner_password")),
             "owner_email": request.form.get("owner_email").lower(),
-            "owner_location": request.form.get("owner_location").lower(),
-            "preferred_age_group": request.form.get("preferred_age_group"),
-            "dog_name": request.form.get("dog_name")
+            "owner_location": request.form.get("owner_location").lower()
         }
         mongo.db.owners.insert_one(register_owner)
 
@@ -203,6 +201,9 @@ def owner_profile(owner_username):
     walks = list(mongo.db.walks.find())
     owner_username = mongo.db.owners.find_one(
         {"owner_username": session["user"]})["owner_username"]
+    result = mongo.db.walks.find()
+    result_list = list(result)
+    print(result_list)
 
     if session["user"]:
         return render_template(
@@ -223,7 +224,11 @@ def add_walk():
             "date_of_walk": request.form.get("date_of_walk"),
             "time_of_walk": request.form.get("time_of_walk"),
             "length_of_walk": request.form.get("length_of_walk"),
-            "type_of_walk": request.form.get("type_of_walk")
+            "type_of_walk": request.form.get("type_of_walk"),
+            "preferred_age_group": request.form.get("preferred_age_group"),
+            "walk_location": request.form.get("walk_location").lower(),
+            "dog_name": request.form.get("dog_name").lower(),
+            "walk_email": request.form.get("walk_email")
         }
         mongo.db.walks.insert_one(add_walk)
 
@@ -267,14 +272,18 @@ def walker_profile(walker_username):
     walkers = list(mongo.db.walkers.find())
     walker = mongo.db.walkers.find_one(
         {"walker_username": session["user"]})
-    owners = list(mongo.db.owners.find())
     walks = list(mongo.db.walks.find())
+    owner_email = mongo.db.owners.find_one(
+            {"owner_email": request.form.get("owner_email")})
+    result = mongo.db.walks.find()
+    result_list = list(result)
+    print(result_list)
     if session["user"]:
         return render_template(
             "walker-profile.html",
             walker_username=walker_username,
-            walker=walker, owners=owners, walks=walks,
-            walkers=walkers)
+            walker=walker, walks=walks,
+            walkers=walkers, owner_email=owner_email)
 
     return redirect(url_for("sign_in_walker"))
 
