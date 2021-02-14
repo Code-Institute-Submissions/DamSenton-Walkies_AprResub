@@ -345,8 +345,7 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul
     border-radius: 0%;
   }
 
-  a.back-to-top {
-    font-weight: 1000;
+ a.back-to-top {
     letter-spacing: 2px;
     font-size: 14px;
     text-transform: uppercase;
@@ -458,7 +457,7 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul
     padding: 10px 15px;
     letter-spacing: 1px;
     text-transform: uppercase;
-    border-radius: 20;
+    border-radius: 20px;
     font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
 }
 
@@ -469,7 +468,7 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul
         padding: 0 15px;
         letter-spacing: 1px;
         text-transform: uppercase;
-        border-radius: 20;
+        border-radius: 20px;
         font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
         height: auto;
         width: auto;
@@ -683,7 +682,7 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul
 }
 
 .matched-owners{
-    font-size: 1vin;
+    font-size: 1vmin;
     margin: 0 auto;
     text-align: center;
     display: flex;
