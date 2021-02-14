@@ -1,4 +1,4 @@
- {% extends "base.html" %}
+{% extends "base.html" %}
 
 {% block content %}
 
@@ -10,16 +10,27 @@
         <div class="col-s12 m8 offset-m2">
 
             <form class="col s12" method="POST" action="{{ url_for('edit_walk', walk_id=walk._id) }}">
+
                 <div class="row">
                     <div class="input-field col s12">
-                        <input type="text" class="datepicker" name="date_of_walk" id="date_of_walk" placeholder="{{ walk.date_of_walk }}" required>
+                        <input placeholder="Name Of Dog" name="dog_name" id="dog_name" type="text" class="validate"
+                            required>
+                        <label for="dog_name">Name of Dog</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input type="text" class="datepicker" name="date_of_walk" id="date_of_walk"
+                            placeholder="{{ walk.date_of_walk }}" required>
                         <label for="date_of_walk">Date Of Walk</label>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="input-field col s12">
-                        <input type="text" class="timepicker" name="time_of_walk" placeholder="{{ walk.time_of_walk }}" id="time_of_walk" required>
+                        <input type="text" class="timepicker" name="time_of_walk" placeholder="{{ walk.time_of_walk }}"
+                            id="time_of_walk" required>
                         <label for="time_of_walk">Time Of Walk</label>
                     </div>
                 </div>
@@ -77,12 +88,12 @@
                 </div>
 
                 <div class="row">
-                <div class="input-field col s12">
-                    <input placeholder="Email Address" name="walk_email" id="walk_email" value="{{ walk.walk_email }}" type="email" class="validate"
-                        required>
-                    <label for="walk_email">Email</label>
+                    <div class="input-field col s12">
+                        <input placeholder="Email Address" name="walk_email" id="walk_email"
+                            value="{{ walk.walk_email }}" type="email" class="validate" required>
+                        <label for="walk_email">Email</label>
+                    </div>
                 </div>
-            </div>
 
                 <button class="submit-button btn waves-effect waves-light" type="submit" name="action">Edit Walk
                     <i class="material-icons right"></i>

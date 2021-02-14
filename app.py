@@ -248,7 +248,11 @@ def edit_walk(walk_id):
             "date_of_walk": request.form.get("date_of_walk"),
             "time_of_walk": request.form.get("time_of_walk"),
             "length_of_walk": request.form.get("length_of_walk"),
-            "type_of_walk": request.form.get("type_of_walk")
+            "type_of_walk": request.form.get("type_of_walk"),
+            "preferred_age_group": request.form.get("preferred_age_group"),
+            "walk_location": request.form.get("walk_location").lower(),
+            "dog_name": request.form.get("dog_name").lower(),
+            "walk_email": request.form.get("walk_email")
         }
         mongo.db.walks.update({"_id": ObjectId(walk_id)}, submit)
 
