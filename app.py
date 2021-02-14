@@ -14,9 +14,6 @@ app = Flask(__name__)
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
-# app.config["register_owner"] = mongo.db.owners.dog_image.insert_one()
-# app.config["permitted_image_types"] = ["PNG", "JPG", "JPEG"]
-# app.config["max_file_size"] = 0.5 * 1024 * 1024
 
 
 mongo = PyMongo(app)

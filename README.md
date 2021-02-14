@@ -14,6 +14,8 @@ I decided to go with this idea as my wife and I have previously used a website c
 
 [Live view of my project](http://walkies-master.herokuapp.com/index)
 
+<hr>
+
 ## **User Experience**
 
 ### Project aims
@@ -25,6 +27,8 @@ I decided to go with this idea as my wife and I have previously used a website c
 - Make use of MongoDB to store user data and to also provide live feedback to users e.g. when entering an incorrect username/password or by trying tosign up with a username that is already in use.
 
 - Make use of APIs, such as Google Maps API to show users possible walk locations if they are new to an area.
+
+<hr>
 
 ### User stories
 
@@ -46,6 +50,7 @@ I decided to go with this idea as my wife and I have previously used a website c
 
 - As a moble user, it is nice to see a website built with mobiles in mind, this website works well on all screen sizes, especially my small phone screen, and no feature is exclusive to a desktop which really ties the experience together.
 
+<hr>
 
 ## Design Planes
 
@@ -61,13 +66,38 @@ I decided on a basic structure which uses a multi-page structure to allow for ac
 - Surface Plane: With all of he above mapped out, I set to work on creating the surface of the webpage. Starting with [Figma](https://www.figma.com/file/fYDp7xJVwoSdtarTEg7e4n/Walkies-Design) I set out the structure I wanted to follow, and also made sure to cement a theme early on, which tied the whole website together.
 I decided to use pastel colours as I wanted a playful and friendly website which would appeal to users of all ages. I also decided on a quirky font from Google Fonts and a background from [Harryarts @ www.freepik.com](https://www.freepik.com/vectors/background) which added more personaltiy to the web page.
 
+<hr>
+
 ## Wireframes
 
 - Desktop wireframe
-![Desktop Design]()
+![Desktop Design](https://browser-fe9a12bc-f34c-4c3b-98e3-d6bb3c2e7b81.ws-eu03.gitpod.io/workspace/Walkies/static/img/Desktop-wireframe.JPG)
 
 - Mobile wireframe
-![Mobile Design]()
+![Mobile Design](https://browser-fe9a12bc-f34c-4c3b-98e3-d6bb3c2e7b81.ws-eu03.gitpod.io/workspace/Walkies/static/img/Mobile-wireframe.JPG)
 
 - Tablet wireframe
-![Tablet Design]()
+![Tablet Design](https://browser-fe9a12bc-f34c-4c3b-98e3-d6bb3c2e7b81.ws-eu03.gitpod.io/workspace/Walkies/static/img/Tablet-wireframe.JPG)
+
+[Full Wireframe](https://www.figma.com/file/fYDp7xJVwoSdtarTEg7e4n/Walkies-Design)
+<hr>
+
+## Features
+
+With a multi page design, I deceided to make this easy for users. The home page has account registration buttons and sign in buttons. These buttons are only viewable in the user is not already signed in to avoid confusion and to avoid errors with multiple sign-ins.
+
+tying the page together is a responsivenav bar which is set out in an indusry style fashion and features a variety of buttons depending on if the user is logged in or not.
+
+Once you are signed up as an owner you are taken to your profile page, from here you are able to create bespoke walks for your dog. Once created, you can read, edit or delete these as you wish, these walks the display on your profile page.
+
+Once you are signed up as a walker, you are shown to your profile page, on this page you are shown a list of collapsible lists which shows dogs available to walk, if you match the preferred age group and location specifications outlined by the owner. From here you can email the owner via a link ont he website which opnes your operating system's default email app with the owner's email address already inserted into the address bar.
+
+On the index page, users are also able to view various maps of each of the 5 areas, these maps show different types of walks in each area and stand to serve as inspriation for new users, I opted not to use marker clusters for these maps as the maps are already centered on the locations stated above it, and this gives users to have a look around the surrounding area for their own inspiration.
+
+## Desired Features
+
+- I would have like to implement a feature that automatically emails users upon a successful account registration but due to time constraints from fixing other bugs, I was left unable to do this.
+
+- The ability to upload an image to the website and use this as a user's profile picture would have really brought this all together, but after having asked multiple people about the possibility of this, I was put off the idea due to the constraints of MongoDB.
+
+
