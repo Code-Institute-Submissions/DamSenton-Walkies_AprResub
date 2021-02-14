@@ -11,6 +11,7 @@
 
             <form class="col s12" method="POST" action="{{ url_for('edit_walk', walk_id=walk._id) }}">
 
+                <!-- dog name input -->
                 <div class="row">
                     <div class="input-field col s12">
                         <input placeholder="Name Of Dog" name="dog_name" id="dog_name" type="text" class="validate"
@@ -19,6 +20,7 @@
                     </div>
                 </div>
 
+                <!-- walk date input (date picker) -->
                 <div class="row">
                     <div class="input-field col s12">
                         <input type="text" class="datepicker" name="date_of_walk" id="date_of_walk"
@@ -27,6 +29,7 @@
                     </div>
                 </div>
 
+                <!-- walk time input (time picker) -->
                 <div class="row">
                     <div class="input-field col s12">
                         <input type="text" class="timepicker" name="time_of_walk" placeholder="{{ walk.time_of_walk }}"
@@ -35,6 +38,7 @@
                     </div>
                 </div>
 
+                <!-- walk length input -->
                 <div class="row">
                     <div class="input-field col s12" id="length_of_walk">
                         <select name="length_of_walk" required>
@@ -48,6 +52,7 @@
                     </div>
                 </div>
 
+                <!-- walk type input -->
                 <div class="row">
                     <div class="input-field col s12" id="type_of_walk">
                         <select name="type_of_walk" required>
@@ -60,6 +65,7 @@
                     </div>
                 </div>
 
+                <!-- walk location input -->
                 <div class="row">
                     <div class="location input-field col s12" id="walk_location">
                         <select name="walk_location" required>
@@ -74,6 +80,7 @@
                     </div>
                 </div>
 
+                <!-- preferred age group input -->
                 <div class="row">
                     <div class="age-group input-field col s12" id="preferred_age_group">
                         <select name="preferred_age_group" required>
@@ -87,6 +94,7 @@
                     </div>
                 </div>
 
+                <!-- email input -->
                 <div class="row">
                     <div class="input-field col s12">
                         <input placeholder="Email Address" name="walk_email" id="walk_email"
@@ -95,9 +103,11 @@
                     </div>
                 </div>
 
+                <!-- submit button to push edit to MongoDB -->
                 <button class="submit-button btn waves-effect waves-light" type="submit" name="action">Edit Walk
                     <i class="material-icons right"></i>
                 </button>
+                <!-- cancel button just in case the user doesn't want to edit the walk -->
                 <a href="{{ url_for(
                     'owner_profile', owner_username=session['user']) }}"
                     class="cancel-button text-shadow btn">Cancel</a>

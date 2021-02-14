@@ -26,8 +26,9 @@
                     class="fas fa-bars"></i></a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="{{ url_for('index') }}" class="nav-link">Home</a></li>
+                <!-- check to see if current user is logged in -->
                 {% if session.user %}
-
+                <!-- checks which type of user is logged in so as to provide the correct profile button -->
                 {% if session.type == "walker" %}
                 <li><a href="{{ url_for('walker_profile', walker_username=session['user']) }}"
                         class="nav-link">Profile</a>
@@ -36,9 +37,11 @@
                 <li><a href="{{ url_for('owner_profile', owner_username=session['user']) }}"
                         class="nav-link">Profile</a>
                 </li>
+                <!-- log out will only show if a user is logged in -->
                 {% endif %}
                 <li><a href="{{ url_for('logout') }}" class="waves-effect waves-light btn sign-out-button">Log Out</a>
                 </li>
+                <!-- sign in will only show if no user is signed -->
                 {% else %}
                 <li><a href="{{ url_for('sign_in') }}" class="waves-effect waves-light btn sign-in-button">Sign In</a>
                 </li>
@@ -47,6 +50,7 @@
 
         </nav>
 
+        <!-- same conditions as above -->
         <ul class="sidenav right" id="mobile-demo">
             <li><a href="{{ url_for('index') }}" class="nav-link">Home</a></li>
             {% if session.user %}
@@ -67,11 +71,9 @@
     <!----- Header Element ----->
 
     {% block content %}
+    <!-- content to be injected in from other pages -->
     {% endblock %}
     <!-- Footer -->
-
-
-
     <footer class="mt-auto py-3">
         <div class="footer-container">
             <ul class="social-media">
@@ -115,7 +117,7 @@
             }
         });
 
-        "<!-------------Scrolls to top -------------->"
+        // Scrolls to top
 
         link.addEventListener('click', function (e) {
             e.preventDefault();

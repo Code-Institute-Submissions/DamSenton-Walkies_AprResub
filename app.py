@@ -11,12 +11,15 @@ if os.path.exists("env.py"):
 
 app = Flask(__name__)
 
+# connect the app to my database
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
 
 mongo = PyMongo(app)
+
+# home page
 
 
 @app.route("/")
@@ -25,31 +28,25 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/about")
-def about():
-    return render_template("about.html")
-
-
-@app.route("/contact")
-def contact():
-    return render_template("contact.html")
-
-
+# sign in as a walker
 @app.route("/sign_in_walker_page")
 def sign_in_walker_page():
     return render_template("sign-in-walker.html")
 
 
+# sign in as an owner
 @app.route("/sign_in_owner_page")
 def sign_in_owner_page():
     return render_template("sign-in-owner.html")
 
 
+# redirect to the general sign in page
 @app.route("/sign_in")
 def sign_in():
     return render_template("sign-in.html")
 
 
+# register as an owner and push data to MongoDB
 @app.route("/register_owner", methods=["GET", "POST"])
 def register_owner():
     if request.method == "POST":
@@ -83,6 +80,7 @@ def register_owner():
     return render_template("register-owner.html")
 
 
+# register as an walker and push data to MongoDB
 @app.route("/register_walker", methods=["GET", "POST"])
 def register_walker():
     if request.method == "POST":
@@ -118,6 +116,7 @@ def register_walker():
     return render_template("register-walker.html")
 
 
+# compare input with database to check if an owner can sign in
 @app.route("/sign_in_owner", methods=["GET", "POST"])
 def sign_in_owner():
     if request.method == "POST":
@@ -150,6 +149,7 @@ def sign_in_owner():
     return render_template("sign-in-owner.html")
 
 
+# compare input with databse to check if a walker can sign in
 @app.route("/sign_in_walker", methods=["GET", "POST"])
 def sign_in_walker():
     if request.method == "POST":
@@ -183,6 +183,7 @@ def sign_in_walker():
     return render_template("sign-in-walker.html")
 
 
+# logs the user out
 @app.route("/logout")
 def logout():
     # remove user from session cookies
@@ -190,6 +191,8 @@ def logout():
     return redirect(url_for("sign_in"))
 
 
+# takes data from my database and displays certain
+#  information to the user based on below conditions
 @app.route("/owner_profile/<owner_username>", methods=["GET", "POST"])
 def owner_profile(owner_username):
     # Take session user's username from MongoDB
@@ -210,6 +213,7 @@ def owner_profile(owner_username):
     return redirect(url_for("sign_in_owner"))
 
 
+# takes user input and pushes data to my 'walks' collection
 @app.route("/add_walk", methods=["GET", "POST"])
 def add_walk():
     if request.method == "POST":
@@ -235,6 +239,7 @@ def add_walk():
     return render_template("add-walk.html")
 
 
+# takes data from 'walks' and allows this to be edited
 @app.route("/edit_walk/<walk_id>", methods=["GET", "POST"])
 def edit_walk(walk_id):
     if request.method == "POST":
@@ -261,12 +266,15 @@ def edit_walk(walk_id):
     return render_template("edit-walk.html", walk=walk)
 
 
+# takes data from 'walks' and allows it to be deleted
 @app.route("/delete_walk/<walk_id>")
 def delete_walk(walk_id):
     mongo.db.walks.remove({"_id": ObjectId(walk_id)})
     return redirect(url_for("owner_profile", owner_username=session["user"]))
 
 
+# takes data from my database and displays
+# certain information to the user based on below conditions
 @app.route("/walker_profile/<walker_username>", methods=["GET", "POST"])
 def walker_profile(walker_username):
     # Take session user's username from MongoDB
@@ -275,7 +283,7 @@ def walker_profile(walker_username):
         {"walker_username": session["user"]})
     walks = list(mongo.db.walks.find())
     owner_email = mongo.db.owners.find_one(
-            {"owner_email": request.form.get("owner_email")})
+        {"owner_email": request.form.get("owner_email")})
     result = mongo.db.walks.find()
     result_list = list(result)
     print(result_list)
@@ -293,4 +301,4 @@ if __name__ == "__main__":
     app.run(
         host=os.environ.get("IP", "0.0.0.0"),
         port=int(os.environ.get("PORT", "5000")),
-        debug=True)
+        debug=False)

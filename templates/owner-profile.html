@@ -12,7 +12,9 @@
                 <div class="row walks center-align">
 
                     <div class="col-12 owner-info">
+                        <!-- iterates over my walks collection in MongoDB -->
                         {% for walk in walks %}
+                        <!-- if the owner's username matches the username in the walks collection it will display the walks that owner has input into the database -->
                         {% if session.user == walk.owner_username %}
                         <p>Location: {{ walk.walk_location.capitalize() }}</p>
                         <p>Type of Walk: {{ walk.type_of_walk }}</p>
@@ -21,15 +23,17 @@
                         <p>Length of Walk: {{ walk.length_of_walk }}</p>
                         <br>
 
-
+                        <!-- button to edit the walk, will only show if a walk is present -->
                         <a href="{{ url_for('edit_walk', walk_id=walk._id) }}"
                             class="waves-effect waves-light btn nav-button-blue">Edit Walk</a>
+                            <!-- button to delete the walk, will only show if a walk is present -->
                         <a href="{{ url_for('delete_walk', walk_id=walk._id) }}"
                             class="waves-effect waves-light btn nav-button-red">Delete Walk</a>
                         <hr>
                         {% endif %}
 
                         {% endfor %}
+                        <!-- button to add a new walk -->
                         <a href="{{ url_for('add_walk') }}" class="waves-effect waves-light btn submit-button">Add a
                             Walk</a>
 

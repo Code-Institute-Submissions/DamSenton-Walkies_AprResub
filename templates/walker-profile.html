@@ -8,10 +8,10 @@
             <div class="card-panel ">
                 <h3 class="center-align light-blue-text text-darken-4">{{ walker.walker_username }}'s Profile
                 </h3>
-
+<!-- iterates over the 'walks' collection to show the walker any wlaks they are eligible for -->
                 {% for walk in walks if walker.walker_location == walk.walk_location and walker.age_group == walk.preferred_age_group %}
                 
-
+<!-- if the walker is matched to any walks, they are displayed in this collapsible list which contains the walk info, and also an email address which they can press which takes them to their operating system's email app with the owner's email address already in the address bar -->
                 <ul class="collapsible">
                     <li>
                         <div class="collapsible-header">{{walk.dog_name.capitalize() }}</div>

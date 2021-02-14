@@ -6,7 +6,9 @@
             <div class="col-12">
                 <div class="masthead-content">
                     <h4 class="masthead-subheading mb-0">Want to get out more and help in your community?</h4>
+                    <!-- checks to see if the user is logged in -->
                     {% if session.user %}
+                    <!-- checks which type of user is logged in so as to provide the correct profile -->
                     {% if session.type == "walker" %}
                     <a href="{{ url_for('walker_profile', walker_username=session['user']) }}"
                             class="waves-effect waves-light btn nav-button-blue" style="margin-top: 90px;">Visit Your Profile</a>
@@ -17,6 +19,7 @@
                    
                     {% endif %}
                     {% endif %}
+                    <!-- if no user is logged in, registration buttons will show -->
                     {% if not session.user %}
                     <p><strong>Register to help today!</strong></p>
 
@@ -35,7 +38,7 @@
 </header>
 
 
-
+<!-- section to show off benefits of signing up -->
 <section class="main-content">
     <div class="divider"><span></span><span>Benefits</span><span></span></div>
     <div class="benefits-section">
@@ -54,6 +57,8 @@
         </div>
     </div>
 
+
+    <!-- user stories outlining why people use the service -->
     <div class="divider"><span></span><span>User Stories</span><span></span></div>
 
 
@@ -112,6 +117,8 @@
         </div>
     </div>
 
+
+    <!-- map section utilising Materialize tabs to show different areas and types of areas which owners like their dogs to be walked -->
     <div class="container-fluid center-align">
         <h2>Our Owners Favourite Locations</h2>
         <ul class="tabs tabs-fixed-width tab-demo z-depth-1">

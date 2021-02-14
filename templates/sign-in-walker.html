@@ -3,6 +3,7 @@
 
 <div class="content">
     <section class="sign-in-form">
+        <!-- messages flash for incorrect username or password -->
         {% with messages = get_flashed_messages() %}
         {% if messages %}
         {% for message in messages %}
@@ -35,7 +36,7 @@
                             <label for="walker_password">Password</label>
                         </div>
                     </div>
-                    <!--Log in-->
+                    <!--Log in, this redirects the user to their profile page-->
                     <div class="row">
                         <button type="submit" class="col s6 btn submit-button waves-effect waves-light">
                             Log In</button>
@@ -46,6 +47,8 @@
                 </div>
             </form>
         </div>
+
+        <!-- if the user does not have an account, they can click hhere to be redirected to the register page -->
         <div class="row">
             <div class="col s12">
                 <p class="center-align">

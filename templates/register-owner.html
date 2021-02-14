@@ -2,6 +2,7 @@
 {% block content %}
 
 <section class="register-form">
+    <!-- flashes a message to inform user that the useraname is already taken -->
     {% with messages = get_flashed_messages() %}
     {% if messages %}
     {% for message in messages %}
@@ -11,11 +12,14 @@
     {% endfor %}
     {% endif %}
     {% endwith %}
+
+    <!-- registration form -->
     <h3 class="center-align">Register Your Dog</h3>
     <div class="row center-align">
 
         <form class="col s12" method="POST" action="{{ url_for('register_owner') }}">
 
+            <!-- username input, must match certain conditions -->
             <div class="row">
                 <div class="input-field col s12">
                     <input placeholder="Enter Your Username Here" name="owner_username" id="owner_username" type="text"
@@ -24,6 +28,7 @@
                 </div>
             </div>
 
+            <!-- password input, must match certain conditions -->
             <div class="row">
                 <div class="input-field col s12">
                     <input placeholder="Enter Your Password Here" name="owner_password" id="owner_password"
@@ -33,6 +38,7 @@
                 </div>
             </div>
 
+            <!-- email input -->
             <div class="row">
                 <div class="input-field col s12">
                     <input placeholder="Email Address" name="owner_email" id="owner_email" type="email" class="validate"
@@ -41,6 +47,7 @@
                 </div>
             </div>
 
+            <!-- location input -->
             <div class="row">
                 <div class="location input-field col s12" id="owner_location">
                     <select name="owner_location" required>
@@ -55,15 +62,16 @@
                 </div>
             </div>
 
-           
-
+            <!-- submit button, pushes form data to 'owner' collection on MongoDB -->
             <button class="submit-button btn waves-effect waves-light" type="submit" name="action">Submit
                 <i class="material-icons right"></i>
             </button>
+            <!-- cancel button in case user does not want to register -->
             <a href="{{ url_for('index') }}" class="cancel-button text-shadow btn">Cancel</a>
         </form>
     </div>
 
+    <!-- if the user is already an owner, they can press here to be taken to the sign in page -->
     <div class="row">
         <div class="col s12">
             <p class="center-align">
