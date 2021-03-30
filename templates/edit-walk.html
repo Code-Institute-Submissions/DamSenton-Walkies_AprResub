@@ -40,8 +40,8 @@
 
                 <!-- walk length input -->
                 <div class="row">
-                    <div class="input-field col s12" id="length_of_walk">
-                        <select name="length_of_walk" required>
+                    <div class="input-field col s12">
+                        <select name="length_of_walk" id="length_of_walk" required>
                             <option value="" disabled>{{ walk.length_of_walk }}</option>
                             <option value="5-10">5-10</option>
                             <option value="10-20">10-20</option>
@@ -54,8 +54,8 @@
 
                 <!-- walk type input -->
                 <div class="row">
-                    <div class="input-field col s12" id="type_of_walk">
-                        <select name="type_of_walk" required>
+                    <div class="input-field col s12">
+                        <select name="type_of_walk" id="type_of_walk" required>
                             <option value="" disabled>{{ walk.type_of_walk }}</option>
                             <option value="Beach">Beach</option>
                             <option value="City">City</option>
@@ -84,7 +84,7 @@
                 <div class="row">
                     <div class="age-group input-field col s12" id="preferred_age_group">
                         <select name="preferred_age_group" required>
-                            <option value=" " disabled selected>{{ walk.preferred_age_group }}</option>
+                            <option value="" disabled selected>{{ walk.preferred_age_group }}</option>
                             <option value="18-21">18-21</option>
                             <option value="21-25">21-25</option>
                             <option value="25-30">25-30</option>

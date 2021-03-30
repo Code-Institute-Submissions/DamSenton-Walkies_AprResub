@@ -11,12 +11,14 @@
                     <!-- checks which type of user is logged in so as to provide the correct profile -->
                     {% if session.type == "walker" %}
                     <a href="{{ url_for('walker_profile', walker_username=session['user']) }}"
-                            class="waves-effect waves-light btn nav-button-blue" style="margin-top: 90px;">Visit Your Profile</a>
-                    
+                        class="waves-effect waves-light btn nav-button-blue" style="margin-top: 90px;">Visit Your
+                        Profile</a>
+
                     {% elif session.type == "owner" %}
                     <a href="{{ url_for('owner_profile', owner_username=session['user']) }}"
-                            class="waves-effect waves-light btn nav-button-blue" style="margin-top: 90px;">Visit Your Profile</a>
-                   
+                        class="waves-effect waves-light btn nav-button-blue" style="margin-top: 90px;">Visit Your
+                        Profile</a>
+
                     {% endif %}
                     {% endif %}
                     <!-- if no user is logged in, registration buttons will show -->
@@ -43,16 +45,26 @@
     <div class="divider"><span></span><span>Benefits</span><span></span></div>
     <div class="benefits-section">
         <div class="container-fluid benefits center-align">
-            <div class="row">
-                <div class="benefits-icons center-align">
+            <div class="row benefits-icons">
+
+                <div class="col">
                     <i class="fas fa-dog fa-5x">
-                        <p>Help Out</p>
-                    </i> <i class="fas fa-user-friends fa-5x">
-                        <p>Make Friends</p>
-                    </i><i class="fas fa-heartbeat fa-5x">
-                        <p>Get Active</p>
                     </i>
+                    <p>Help Out</p>
                 </div>
+
+                <div class="col">
+                    <i class="fas fa-user-friends fa-5x">
+                    </i>
+                    <p>Make Friends</p>
+                </div>
+
+                <div class="col">
+                    <i class="fas fa-heartbeat fa-5x">
+                    </i>
+                    <p>Get Active</p>
+                </div>
+
             </div>
         </div>
     </div>
@@ -156,9 +168,7 @@
 
         <div id="leith" class="col s12">
             <div class="walk-location">
-
                 <ul class="collapsible">
-                    <li>
 
                     <li>
                         <div class="collapsible-header">Beach</div>
@@ -184,7 +194,6 @@
                         </div>
                     </li>
 
-                    </li>
                 </ul>
 
             </div>
@@ -194,7 +203,6 @@
             <div class="walk-location">
 
                 <ul class="collapsible">
-                    <li>
 
                     <li>
                         <div class="collapsible-header">City</div>
@@ -211,7 +219,7 @@
                             <div class="map" id="morningside_park_map"></div>
                         </div>
                     </li>
-                    </li>
+
                 </ul>
 
             </div>
@@ -221,7 +229,7 @@
             <div class="walk-location">
 
                 <ul class="collapsible">
-                    <li>
+
                     <li>
                         <div class="collapsible-header">City</div>
                         <div class="collapsible-body">
@@ -238,7 +246,6 @@
                         </div>
                     </li>
 
-                    </li>
                 </ul>
 
             </div>
@@ -248,7 +255,6 @@
             <div class="walk-location">
 
                 <ul class="collapsible">
-                    <li>
 
                     <li>
                         <div class="collapsible-header">Beach</div>
@@ -274,19 +280,12 @@
                         </div>
                     </li>
 
-                    </li>
                 </ul>
 
             </div>
         </div>
 
-
-
     </div>
 </section>
-
-
-
-
 
 {% endblock %}

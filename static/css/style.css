@@ -302,8 +302,7 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul
     width: 100%;
     height: auto;
     margin: 0 auto;
-    justify-content: center;
-    align-items: center;
+    display: flex;
    }
 
 .benefits i{
@@ -326,6 +325,7 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul
     font-size: 2vmax;
     color: black;
     margin: 0 auto;
+    font-weight: 700;
 }
 
 /*-------------- Back to top buttons (courtesy of https://heathertovey.com/blog/floating-back-to-top-button/) ------ */
