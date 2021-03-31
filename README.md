@@ -165,16 +165,25 @@ On the index page, users are also able to view various maps of each of the 5 are
 
 All of my pages pass validation through the URL validator https://validator.w3.org/nu/, the only warnings present on each page is to do with code comments containing too many hyphons which does not affect the page in any way shape or form.
 
-Here are screenshots of my code being passed through a URL validator [HTML](static/code-validation/html)
+Here are screenshots of my code being passed through a URL validator.
+
+ [HTML Code Validation](static/code-validation/html).
 
 ### CSS Validator (W3C):
 
+All of my pages had the same errors in the CSS, however all of the errors were to do with imported styles from Materialize.min.css, clean-blog.css and overwritten styles due to my use of Chrome Dev Tools. As a result of this, these do not pass validation but also do not detract from the sie in any way.
 
+My pages also had multiple warnings due to the validator not recognizing -webkit-, -o-, -ms-filter, and so on. As these are warnings, they do not affect the page in anyway and are simply there to make sure my CSS styling carrie sover to multiple web browsers.
 
+Here is a screenshot of my CSS errors.
+
+ [CSS Code Validation](static/code-validation/css).
 
 ### JavaScript Validator (JSHint)
 
-- My Javascript all passed Validation except for my Maps.js, which didn't actually fail, but JSHint showed I had unused variables in my code. While this does not break the page, it would make readibility and editing harder ![JavaScript Errors](https://browser-fe9a12bc-f34c-4c3b-98e3-d6bb3c2e7b81.ws-eu03.gitpod.io/workspace/Walkies/static/img/JS-Errors.JPG)
+- My Javascript all passed Validation except for my Maps.js, which didn't actually fail, but JSHint showed I had unused variables in my code. While this does not break the page, it would make readibility and editing harder.
+
+[JavaScript Errors](static/code-validation/javascript).
 
 ### Python Validator (Extendsclass.com)
 
