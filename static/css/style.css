@@ -216,6 +216,7 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul
 }
     
 
+/* Values set to 0 as copied from Chrome Dev Tools and used to override imported style from 'Clean-Blog.Css' */
  .z-depth-1, nav, .card-panel, .card, .toast, .btn, .btn-large, .btn-small, .btn-floating, .dropdown-content, .collapsible, .sidenav{
     -webkit-box-shadow: 0, 0, 0, 0 rgb(0 0 0 0), 0, 0, 0, 0 rgb(0 0 0 0), 0, 0, 0, 0 rgb(0 0 0 0) !important;
     box-shadow: 0, 0, 0, 0 rgb(0 0 0 0), 0, 0, 0, 0 rgb(0 0 0 0), 0 0px 0px 0 rgb(0 0 0 0) !important;

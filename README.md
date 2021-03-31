@@ -163,11 +163,13 @@ On the index page, users are also able to view various maps of each of the 5 are
 
 ### HTML Validator (W3C):
 
-- All of my pages apparently fail HTML Validation, but having looked at the errors, this is due to the use of Jinja and its various tools for template inheritance and url_for() routing techniques.
+All of my pages pass validation through the URL validator https://validator.w3.org/nu/, the only warnings present on each page is to do with code comments containing too many hyphons which does not affect the page in any way shape or form.
+
+Here are screenshots of my code being passed through a URL validator [HTML](static/code-validation/html)
 
 ### CSS Validator (W3C):
 
-- My CSS all passed except for this, which is due to my use od Chrome Dev Tools to overrite an imported framework ![CSS Errors](https://browser-fe9a12bc-f34c-4c3b-98e3-d6bb3c2e7b81.ws-eu03.gitpod.io/workspace/Walkies/static/img/css-errors.JPG)
+
 
 
 ### JavaScript Validator (JSHint)
