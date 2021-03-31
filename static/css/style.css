@@ -299,6 +299,7 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul
 }
 
 .benefits{
+    display: flex;
     width: 100%;
     height: auto;
     margin: 0 auto;
@@ -307,15 +308,15 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul
 .benefits-icons{
     align-items: center;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     flex-wrap: wrap;
 }
 
 .benefits-icons i{
     color: rgb(68, 211, 144);
-    margin: 0 auto;
+    
     font-size: 5vmax;
-    margin-bottom: 2rem;
+    
     width: 100%;
 }
 
@@ -329,9 +330,24 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul
     font-family: "Joesfin Slab", sans-serif;
     font-size: 2vmax;
     color: black;
-    margin: 0 auto;
+    
     font-weight: 700;
     width: 100%;
+}
+
+.benefit-col{
+    margin: 0 3rem 0 3rem;
+    max-width: 33%;
+}
+
+@media screen and (max-width:800px){
+    .benefit-col{
+    margin: 0;
+    }
+}
+
+.benefit-text{
+    margin: 0 auto !important;
 }
 
 /*-------------- Back to top buttons (courtesy of https://heathertovey.com/blog/floating-back-to-top-button/) ------ */
